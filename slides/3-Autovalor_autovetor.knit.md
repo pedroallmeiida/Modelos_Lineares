@@ -1,0 +1,107 @@
+---
+title: "Autovalor e Autovetor"
+title-slide-attributes:
+  data-background-image: Marca_UEPB.png
+  data-background-size: contain
+  data-background-opacity: "0.1"
+author: "Pedro Almeida"
+format: 
+  revealjs: 
+    logo: Marca_UEPB.png
+    theme: solarized
+    transition: slide
+    background-transition: fade
+    smaller: false
+    scrollable: true
+knitr:
+  opts_chunk:
+    message: false
+    warning: false
+css: hscroll.css
+editor: 
+  markdown: 
+    wrap: 72
+---
+
+
+::: {style="height:500px; font-size:30px; margin-left: 5px; margin-right: 5px"}
+
+# Autovalores
+
+**Definição:** Dada uma matriz quadrada real $A_{nn}$, então a equação $\delta\left( A_{nn} - \lambda \mathbb{I}_{nn}  \right) = det( A_{nn} - \lambda \mathbb{I}_{nn} ) = 0$ é definida como a equação característica de $A$. Suas raízes são chamadas de raízes características (ou autovalores) de $\boldsymbol A$. 
+
+
+**Exemplo:** Seja a matriz $A = \left( \begin{array}{cc} 2 & 1 \\ 1 & 2 \end{array} \right)$, obtenha os autovalores de $A$.
+
+:::
+
+# Autovetor 
+
+**Definição:** Os vetores $\boldsymbol x$, tais que: 
+$\left( \boldsymbol{A}_{nn} - \lambda \boldsymbol{\mathbb{I}}_{nn}  \right)\boldsymbol x  = \boldsymbol 0$  são os autovetores de $\boldsymbol A$. 
+
+**Exemplo:** Considere a matriz do exemplo anterior e calcule os autovetores de $\boldsymbol A$. 
+
+## Norma
+
+**Definição:** A norma de um vetor $\boldsymbol x$ é defininda como: 
+
+
+$$
+|| \boldsymbol x || =  \sqrt{ \boldsymbol x^{\top} \boldsymbol x } = \sqrt{ \sum_{i=1}^{n} x_i^2 }
+$$
+
+**Exemplo:** Seja $\boldsymbol x_1 = \left( \begin{array}{c} 1 \\ 1 \end{array}  \right)$ e $\boldsymbol x_2 = \left( \begin{array}{c} 1 \\ -1 \end{array}  \right)$. Calcule $|| \boldsymbol x_1 ||$ e $|| \boldsymbol x_2 ||$. 
+
+
+## Vetor Normalizado
+
+**Definição:** É definido como $\boldsymbol u = \frac{1}{||\boldsymbol x||} \boldsymbol x$. 
+
+
+**Exemplo:** Para os vetores $\boldsymbol x_1$ e $\boldsymbol x_2$ do exemplo anterior, obtenha o vetor normalizado para cada um deles. 
+
+
+## Vetores ortogonais 
+
+Definição: Dois vetores $x$ e $y$ são ortogonais se, somente se,
+
+
+$$
+\boldsymbol x^{\top} \boldsymbol y = \boldsymbol y^{\top} \boldsymbol x
+$$
+
+
+## Exemplo 
+
+Dados os vetores $\boldsymbol x = \left( \begin{array}{c} 1 \\ 1 \\ -2 \end{array}  \right)$ e $\boldsymbol y = \left( \begin{array}{c} 1 \\ -1 \\ 0 \end{array}  \right)$. Mostre que $\boldsymbol x^{\top}\boldsymbol y = \boldsymbol y^{\top}\boldsymbol x = 0$
+
+## Teorema (propriedades dos autovalores)
+
+Dada uma matriz quadrada real $A_{nn}$ com autovalores $\lambda_i \, (i = 1, \ldots, n)$. Então, 
+
+1. $\lambda_i \neq 0$, $\forall i$ se e só se, $\boldsymbol A$ é não singular
+
+2. Se $r(\boldsymbol A) = k < n$, então $\boldsymbol A$ tem $k$ autovalores não nulos e $n-k$ autovalores nulos.
+
+3. Se $A_{nn}$ é não singular, então as raízes de $\boldsymbol A^{-1}$ são $\frac{1}{\lambda_i}$, $i = 1, \ldots, n$
+
+4. $tr(\boldsymbol A) = \sum_{i=1}^{n} \lambda_i$ 
+
+5. $det(\boldsymbol A) = \prod\limits_{i=1}^{n} \lambda_i$
+
+## Teorema 
+
+Seja a matriz quadrada real $\boldsymbol A_{nn}$ e $\lambda_i$ os autovalores. Então:
+
+1. Se $\lambda_i > 0, \forall i$, então, $\boldsymbol A$ é positiva definida
+
+2. Se $\lambda_i \geq 0$, $\forall i$ e $\exists \, \lambda_i = 0$, então, $\boldsymbol A$ é semi positiva definida;
+
+3. $\lambda_i < 0$, $\forall i$, então, $\boldsymbol A$ é negativa definida;
+
+4. Se $\lambda_i \leq 0$, $\forall i$ e $\exists \, \lambda_i = 0$, então, $\boldsymbol A$ é semi negativa definida;
+
+
+
+

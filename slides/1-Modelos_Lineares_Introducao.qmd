@@ -1,0 +1,258 @@
+---
+title: "Modelos Lineares (Introdução)"
+title-slide-attributes:
+  data-background-image: Marca_UEPB.png
+  data-background-size: contain
+  data-background-opacity: "0.1"
+author: "Pedro Almeida"
+format: 
+  revealjs: 
+    logo: Marca_UEPB.png
+    theme: solarized
+    transition: slide
+    background-transition: fade
+    smaller: false
+    scrollable: true
+knitr:
+  opts_chunk:
+    message: false
+    warning: false
+css: hscroll.css
+---
+
+# Apresentação do curso
+
+::: {style="height:500px; overflow:auto"}
+1.  Unidade I
+
+    -   Resultados matriciais,
+
+    -   Inversa generalizada: definição,
+
+    -   Solução de sistemas lineares,
+
+    -   Principais teoremas
+
+    -   Formas quadráticas: definição, classificação, derivadas de formas lineares e quadráticas.
+
+    -   Distribuição e independência de formas quadráticas sob normalidade e principais teoremas
+
+    2.  Unidade II:
+
+    -   Introdução aos modelos linares: o modelo linear geral, o modelo linear de Gauss Markov: O sistema de equações normais e soluções.
+
+    -   Estimação em modelos lineares: estimabilidade, funções lineares estimáveis e propriedades dos estimadores e estimação pontual e intervalar.
+
+    -   Testes de hipóteses para os parâmetros e para funções lineares dos parâmetros.
+
+    -   Aplicação aos modelos lineares de regressão e planos experimentais.
+:::
+
+# Avaliação
+
+::: {style="height:500px; font-size:30px; margin-left: 5px; margin-right: 5px"}
+1.  **Unidade 1:**
+
+    -   Prova teórica
+
+2.  **Unidade 2:**
+
+    -   Seminários (individuais)
+
+3.  **Nota final:**
+
+    -   Média dos seminários
+
+    -   Reposição : Prova teórica
+
+    -   Prova final: Prova teórica
+:::
+
+# Referências usadas no curso
+
+::: {style="height:500px; overflow:auto"}
+
+\[1\] LUNA, J. G.; OLINDA, R. A. **Introdução a Modelos Lineares**. Livraria da Física e Eduepb, Campina Grande-PB, 2014.
+
+![](images/paste-79F74952.png){width="267"}
+
+\[2\] SEARLE, S.R. **Linear Models**. John Wiley & Sons, Inc. 1997.
+
+![](images/paste-2FF1A80A.png){width="265"}
+:::
+
+
+# Conceitos Matriciais
+
+## Definição Matriz
+
+::: {style="height:500px; font-size:30px; margin-left: 5px; margin-right: 5px"}
+
+**Definição :** Uma matriz é, em geral, um arranjo retangular de elementos em linhas e colunas
+
+*Obs*: Geralmente as matrizes são representadas por letras maiúsculas em negrito e será constituída de elementos pertencentes ao conjunto dos números reais.
+
+**Exemplo:** São exemplos de matrizes:
+
+$$
+\boldsymbol A =\left(\begin{array}{ccc}1 & 2 & -1 \\2 & -3 & 0 \\-1 & 1 & 3\end{array}\right); 
+\boldsymbol B =\left(\begin{array}{cc}1 & 2  \\5 & -3  \end{array}\right) \quad e \quad 
+\boldsymbol C =\left(\begin{array}{cc}1 & 2 \\ -1 & 2 \\ -1 & 1 \end{array}\right)
+$$
+:::
+
+## Dimensão de uma matriz
+
+::: {style="height:500px; font-size:30px; margin-left: 5px; margin-right: 5px"}
+
+**Definição:** Dimensão é um par ordenado de números naturais que descreve o número de linhas e o número de colunas de uma matriz.
+
+**Exemplo:** As matrizes $\boldsymbol{A}$, $\boldsymbol B$ e $\boldsymbol C$ citadas anteriormente com suas respectivas ordens são
+
+-   $\boldsymbol A_{3 \times 3}$ ou $\boldsymbol A_{3\, 3}$, isto é, a matriz possui três linhas e três colunas
+
+-   $\boldsymbol B_{2 \times 2}$ ou $\boldsymbol B_{2 \, 2}$, isto é, a matriz possui duas linhas e duas colunas
+
+-   $\boldsymbol C_{3 \times 2}$ ou $\boldsymbol C_{3 \, 2}$, isto é, a matriz possui três linhas e duas colunas.
+:::
+
+## Forma Geral de uma matriz
+
+::: {style="height:500px; font-size:30px; margin-left: 5px; margin-right: 5px"}
+
+**Forma Geral:** De modo geral, uma matriz $\boldsymbol A$ com $m$ linhas e $n$ colunas é representada por:
+
+$$
+\boldsymbol A_{m \times n} =\left( \begin{array}{ccccc}a_{11} & a_{12} & a_{13} & \ldots & a_{1n} \\a_{21} & a_{22} & a_{23} & \ldots & a_{2n} \\\vdots & \vdots & \vdots & \ddots & \vdots \\a_{m1} & a_{m2} & a_{m3} & \cdots & a_{mn}\end{array}\right); 
+$$
+
+em que $a_{ij}$ são os elementos da matriz sendo $i = 1, \ldots, m$ o índice das linhas e $j = 1, \ldots, n$ o índice que representa a coluna.
+:::
+
+# Tipos de Matrizes
+
+## Matriz Quadrada
+
+::: {style="height:500px; font-size:30px; margin-left: 5px; margin-right: 5px"}
+
+Definição (Matriz quadrada): Se $A_{mn}$ tem $m=n$, então $A_{mn}$ é uma matriz quadrada. 
+
+Exemplo: 
+
+$$
+\boldsymbol A =\left(\begin{array}{ccc}1 & 2 & -1 \\2 & -3 & 0 \\-1 & 1 & 3\end{array}\right)
+\quad  e \quad 
+\boldsymbol B =\left(\begin{array}{cc}1 & 2  \\5 & -3  \end{array}\right).
+$$
+:::
+
+
+## Matriz Triangular
+
+::: {style="height:500px; font-size:30px; margin-left: 5px; margin-right: 5px"}
+
+Definição: É uma matriz quadrada que tem nulos todos os elementos abaixo ou acima da diagonal principal. Isto é,
+
+
+$$
+B_{(n)}=\left( \begin{array}{rrrr}b_{11} & b_{12} & \cdots & b_{1 n} \\ 0 & b_{22} & \cdots & b_{2 n} \\ \vdots & \vdots & \ddots & \vdots \\ 0 & 0 & \cdots & b_{n n}\end{array}\right)
+\quad  e \quad 
+C_{(n)}=\left(\begin{array}{rrrr}c_{11} & 0 & \cdots & 0 \\ c_{21} & c_{22} & \cdots & 0 \\ \vdots & \vdots & \ddots & \vdots \\ c_{n 1} & c_{n 2} & \cdots & c_{n n}\end{array}\right)
+$$
+:::
+
+
+## Matriz Diagonal 
+
+A matriz diagonal $D_{nn}$ é uma matriz diagonal se, e somente se, $d_{ij} = 0$, para todo $i \neq j$.
+Isto é,
+
+$$
+D_{nn} = \left( \begin{array}{rrrr}d_{11} & 0 & \cdots & 0 \\ 0 & d_{22} & \cdots & 0 \\  \vdots & \vdots & \ddots & \vdots \\ 0 & 0 & \cdots & d_{n n}\end{array}\right)
+$$
+## Matriz Identidade 
+
+::: {style="height:500px; font-size:30px; margin-left: 5px; margin-right: 5px"}
+
+**Definição:** É toda matriz diagonal tal que $d_ii = 1$, para todo $i$.
+
+
+$$
+I_{(n)}=\left(\begin{array}{cccc}1 & 0 & \cdots & 0 \\ 0 & 1 & \cdots & 0 \\ \vdots & \vdots & \ddots & \vdots \\ 0 & 0 & \cdots & 1\end{array}\right)=\operatorname{diag}\{1,1, \cdots, 1\}.
+$$
+:::
+
+## Matriz Simétrica
+
+
+::: {style="height:500px; font-size:30px; margin-left: 5px; margin-right: 5px"}
+
+Definição: Se uma matriz quadrada $A_{nn} = a_{ij}$ tem $a_{ij} = a_{ji}$
+
+$$
+A' = A^{\top} = (a_{ij}).
+$$
+
+**Exemplo:** A matriz $\boldsymbol{A}$, dada a seguer, $E$ simétrica,
+
+$$
+A=\left(\begin{array}{rrr}
+5 & 2 & 3 \\
+2 & 9 & -1 \\
+3 & -1 & 4
+\end{array}\right)
+$$
+Pois, $a_{12}=a_{21}=2, a_{13}=a_{31}=3$ e $a_{23}=a_{32}=-1$.
+:::
+
+## Matriz Transposta
+
+::: {style="height:500px; font-size:30px; margin-left: 5px; margin-right: 5px"}
+
+**Definição:** Dada uma matriz $A_{mn} = a_{ij}$, sua transposta, denotada por $A'$ ou $A^{\top}$, é dada por:
+
+$$
+A' = A^{\top} = (a_{ji}).
+$$
+**Exemplo:** Seja 
+$$
+A_{23} = \left(\begin{array}{rrr}
+5 & 10 & 3 \\
+1 & 5 & -1 \\
+\end{array}\right)
+$$
+Encontre a matriz transposta $A^{\top}$. 
+
+
+
+:::
+
+
+## Vetor
+
+::: {style="height:500px; font-size:25px; margin-left: 5px; margin-right: 5px"}
+
+Se uma matriz $A_{mm}$ é tal que $m=1$ ou $n=1$, então,
+$A_{m1}$ é um vetor coluna e $A_{1n}$ é um vetor linha.
+
+**Exemplo:**
+
+- Vetor coluna:
+$$
+A_{31} = \left(\begin{array}{r}
+1  \\
+5  \\
+3 
+\end{array}\right) 
+$$
+- Vetor Linha:
+
+$$
+A_{13} = \left(\begin{array}{r}
+1  & 5 & 3\\
+\end{array}\right) 
+$$
+
+:::
+
+

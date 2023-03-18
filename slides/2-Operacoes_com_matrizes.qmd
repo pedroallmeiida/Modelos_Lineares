@@ -1,0 +1,418 @@
+---
+title: "Operações com matrizes"
+title-slide-attributes:
+  data-background-image: Marca_UEPB.png
+  data-background-size: contain
+  data-background-opacity: "0.1"
+author: "Pedro Almeida"
+format: 
+  revealjs: 
+    logo: Marca_UEPB.png
+    theme: solarized
+    transition: slide
+    background-transition: fade
+    smaller: false
+    scrollable: true
+knitr:
+  opts_chunk:
+    message: false
+    warning: false
+css: hscroll.css
+editor: 
+  markdown: 
+    wrap: 72
+---
+
+::: {style="height:1000px; font-size:30px; margin-left: 5px; margin-right: 5px"}
+
+# Operações Básicas com matrizes
+
+**Definição (Adição):** Dadas as matrizes $A_{mn} = (a_{ij})$ e
+$B_{mn} = (b_{ij})$, define-se a soma entre elas como:
+
+$$
+A_{mn} + B_{mn} = a_{ij} + b_{ij}, \quad \forall (i,j) \in \left\{  1, \ldots, m \right\} \times \left\{  1, \ldots, n \right\}
+$$ Exemplo: Sejam as matrizes:
+
+$$
+\boldsymbol A =\left(\begin{array}{ccc}2 & 1 & 0 \\ -1 & a & 3 \end{array}\right) \quad  e \quad 
+\boldsymbol B =\left(\begin{array}{ccc}r & -1 & 1 \\ 0 & -2 & 3 \end{array}\right)
+$$ Então,
+
+$$
+C = A + B = \left(\begin{array}{ccc}2+ r & 0 & 1 \\ -1 & a-2 & 6 \end{array}\right)
+$$
+:::
+
+::: {style="height:1000px; font-size:30px; margin-left: 5px; margin-right: 5px"}
+
+## Propriedades da Soma de Matrizes
+
+Sejam $A_{mn} = (a_{ij})$, $B_{mn} = (b_{ij})$ e $C_{mn} = (c_{ij})$
+matrizes reais. Então, em relação a adição, temos as seguintes
+propriedades:
+
+(P1) Comutativa: 
+
+$$
+A_{mn} + B_{mn} = B_{mn} + A_{mn}
+$$ 
+(P2) Associativa:
+
+$$
+\begin{eqnarray}
+A_{mn} + B_{mn} + C_{mn}  &= (A_{mn} +B_{mn}) + C_{mn} 
+&= A_{mn} +  (B_{mn} + C_{mn})
+\end{eqnarray}
+$$
+
+(P3) Elemento Neutro: Se $\boldsymbol \phi_{mn}$ é uma matriz nula e
+$\boldsymbol A_{mn}$ é uma matrizqualquer, então,
+
+$$
+\boldsymbol A + \boldsymbol \phi = \boldsymbol \phi + \boldsymbol A = \boldsymbol A
+$$
+:::
+
+## Subtração de matrizes
+
+::: {style="height:500px; font-size:30px; margin-left: 5px; margin-right: 5px"}
+
+**Definição (Subtração):** Dadas as matrizes $A_{mn} = (a_{ij})$ e
+$B_{mn} = (b_{ij})$, define-se a diferenciação entre elas como:
+
+$$
+A_{mn} - B_{mn} = a_{ij} - b_{ij}, \quad \forall (i,j) \in \left\{  1, \ldots, m \right\} \times \left\{  1, \ldots, n \right\}
+$$
+
+[**Observação 1:**]{style="color:red"}. As operações de soma e diferença
+de matrizes só são possíveis entre matrizes que tenham as mesmas
+dimensões.
+
+[**Observação2 :**]{style="color:red"}. A propriedade comutativa não é
+válida para subtração de matrizes.
+:::
+
+## Exemplo
+
+Sejam $A$ e $B$, tais que:
+
+$$
+A = \left(\begin{array}{ccc}2 & a \\ 1 & 0 \\ -3 & 1 \end{array}\right) \quad e \quad B = \left(\begin{array}{ccc}10 & 40 \\ 20 & 50 \\ 30 & 60 \end{array}\right) 
+$$ Calcule $A-B$ e $B-A$ e mostre que $A-B \neq B-A$.
+
+## Multiplicação por escalar
+
+::: {style="height:500px; font-size:30px; margin-left: 5px; margin-right: 5px"}
+
+**Definição:** Seja $\lambda$ um escalar e $A_{mn}$ uma matriz. O
+produto $\lambda A = A\lambda$ consiste em multiplicar cada elemento da
+matriz $A$ pelo escalar $\lambda$.
+
+[**Exemplo:**]{style="color:red"} Considerando o escalar $\lambda = 3$ e
+$A = \left(\begin{array}{cc} 1 & -2 \\ 3 & a \end{array}\right)$. Então,
+$\lambda A$ é dada por:
+
+$$
+\lambda A = 3 \left(\begin{array}{cc} 1 & -2 \\ 3 & a \end{array}\right) = \left(\begin{array}{cc} 3 & -6 \\ 9 & 3 a \end{array}\right)
+$$
+:::
+
+::: {style="height:500px; font-size:30px; margin-left: 5px; margin-right: 5px"}
+
+## Propriedades da multiplicação de matrizes por escalares
+
+Sejam $\lambda$ e $\gamma$ escalares e $A$ e $B$ matrizes, então:
+
+(P1) $\lambda(\gamma A)$ =$(\lambda\gamma) A$
+
+(P2)
+$\lambda \left( A \stackrel{+}{-} B \right) = \lambda A \stackrel{+}{-} \lambda B$
+
+(P3)
+$\left( \lambda \stackrel{+}{-} \gamma \right) A = \lambda A \stackrel{+}{-} \gamma A$
+
+(P4) $\boldsymbol 1 A= A$
+:::
+
+# Multiplicação entre matrizes
+
+Dadas duas matrizes reais $A_{mn} = (a_{ij})$ e $B_{np} = (b_{jk})$,
+define-se o produto $R = AB$ como a matriz $R_{np} = (r_{ik})$, em que
+
+$$
+r_{ik} = \sum_{j=1}^{n} a_{ij} b_{jk}.
+$$ 
+
+
+:::{style="height:1000px; font-size:25px; margin-left: 5px; margin-right: 5px"}
+## Exemplo 1
+
+Sejam as matrizes $A$ e $B$, dadas por:
+
+$$
+A_{32} = \left(\begin{array}{cc} a_{11} & a_{12} \\a_{21} & a_{22}  \\ a_{31} & a_{32}  \end{array}\right) 
+\quad e \quad B = \left(\begin{array}{cccc} b_{11} & b_{12}& b_{13} & b_{14} \\ b_{21} & b_{22}& b_{23} & b_{24} \\  \end{array}\right).
+$$ Então,
+
+$$
+R_{34} = A_{32}B_{24} = \left(\begin{array}{cccc} r_{11} & r_{12} & r_{13} & r_{14}  \\ r_{21} & r_{22} & r_{23} & r_{24} \\ r_{31} & r_{32} & r_{33} & r_{34} \end{array}\right) 
+$$
+
+em que
+
+$$
+\begin{array}{cccc} 
+r_{11}  = a_{11} b_{11} + a_{12} b_{21} \\ 
+r_{12}  = a_{11} b_{12} + a_{12} b_{22} \\
+\vdots
+\end{array}
+$$
+
+**Observação:** O produto entre duas matrizes $A$ e $B$ só é possível se o
+número de colunas de $A$ for igual ao número de linhas de $B$.
+
+:::
+
+## Exemplo 2
+
+Sejam $A$ e $B$ matrizes, tais que
+
+$$
+A = \left(\begin{array}{ccc} 2 & -1 & 0  \\ 1 & 2 & -3  \end{array}\right) \quad e \quad  B = \left(\begin{array}{cc} 1 & 1  \\ 1 & 2 \\ 1 &3  \end{array}\right)
+$$ Calcule AB.
+
+::: {style="height:1000px; font-size:30px; margin-left: 5px; margin-right: 5px"}
+
+## Soma Direta
+
+Definição: Dadas as matrizes $A_{mn}$ e $B_{rs}$, definimos sua soma
+direta como
+
+$$
+A \oplus B = \left(\begin{array}{ccc} \boldsymbol A & \boldsymbol \phi \\ \boldsymbol \phi & \boldsymbol B   \end{array}\right) = \boldsymbol C_{ (m+r),(n+s) }
+$$
+
+**Exemplo:** Sejam as matrizes $A$ e $B$, tais que
+
+$$
+A =  \left(\begin{array}{ccc} 1 & 2 & 3 \end{array}\right) \quad e \quad B = \left(\begin{array}{cc} 6 & 7 \\ 4 & -1 \end{array}\right).
+$$
+
+Então,
+
+$$
+A \oplus B  = \left(\begin{array}{ccccc} 1 & 2 & 3 & 0 & 0 \\ 0 & 0 & 0 & 6 & 7 \\ 0 & 0 & 0 & 4 & -1\end{array}\right).
+$$
+:::
+
+::: {style="height:1000px; font-size:30px; margin-left: 5px; margin-right: 5px"}
+
+## Produto Direto
+
+**Definição:** Dadas as matrizes $A_{mn}$ e $B_{rs}$, define-se o
+produto direto ou produto de *Kroncker* de $A$ e $B$ como:
+
+$$
+A \otimes B = \left(\begin{array}{ccc} 
+a_{11} \boldsymbol B & a_{12} \boldsymbol B & \cdots & a_{1n} \boldsymbol B  \\ 
+a_{21} \boldsymbol B & a_{22} \boldsymbol B & \cdots & a_{2n} \boldsymbol B \\ 
+\vdots & \vdots & \vdots & \vdots & \\ 
+a_{m1} \boldsymbol B & a_{m2} \boldsymbol B & \cdots & a_{mn} \boldsymbol B
+\end{array}\right) = \boldsymbol C_{ (mr),(ns) }
+$$
+:::
+
+## Exemplo
+
+Sejam as matrizes
+$A = \left(\begin{array}{cc} 1 & 0 \\ 0 & 1 \end{array}\right)$ e
+$B = \left(\begin{array}{cc} x & y \\ y & x \end{array}\right)$ e
+$v = \left(\begin{array}{c} 1 \\ 2 \\ 3 \end{array}\right)$. Calcule:
+
+(a) $A \otimes B$
+
+(b) $B \otimes A$
+
+(c) $A \otimes v$
+
+(d) $v \otimes A$
+
+## Potência de matrizes
+
+**Definição:** Dada a matriz quadrada $A_{nn}$ e um número inteiro e
+positivo $k$, define-se a $k$-ésima potência de $A$ por:
+
+$$
+A^k = \underbrace{AA \cdots A}_{\text{k vezes}}
+$$
+
+::: {style="height:1000px; font-size:29px; margin-left: 5px; margin-right: 5px"}
+## Exemplo
+
+Seja a matriz
+$A = \left(\begin{array}{cc} 1 & 2 \\ 3 & 4 \end{array}\right)$. Então,
+
+$$
+A^2 = AA = \left(\begin{array}{cc} 7 & 10 \\ 15 & 22 \end{array}\right) \quad e \quad A^3 = A^2A = \left(\begin{array}{cc} 37 & 54 \\ 81 & 118 \end{array}\right)
+$$
+:::
+
+
+## Tipos de matrizes quadradas
+
+**Definição:** Dada a matriz quadrada $A_{nn}$, então, em relação a sua
+potência, ela será:
+
+-   Idempotente, se $A^2 = A$
+-   Nilpotente, se $A^2 = \boldsymbol \phi$
+-   Unipotente, se $A^2 = I$
+
+## Exemplo
+
+::: {style="height:500px; font-size:25px; margin-left: 5px; margin-right: 5px"}
+As matrizes $A$,$B$ e $C$ dadas a seguir, são ?
+
+$$
+A = \frac{1}{3} \left(\begin{array}{cc} 2 & -1 & -1 \\ -1 &  2 & -1 \\ -1 & -1 & 2\end{array}\right), \quad B = \left(\begin{array}{cc} 1 &3 & 7 \\ 2 & 6 & 14 \\ -1 & -3 & -7   \end{array}\right) \quad e \quad C = \left(\begin{array}{cc} 1 & 0 & 2 & 3 \\ 0 & 1 & 4 & 5 \\ 0 & 0 & -1&  0 \\ 0 & 0 & 0 & -1  \end{array}\right)
+$$
+:::
+
+# Formas Escalonadas
+
+::: {style="height:500px; font-size:30px; margin-left: 5px; margin-right: 5px"}
+
+Uma matriz está na forma escalonada se ela tiver as seguintes
+características:
+
+-   O 1º elemento da 1ª coluna é sempre zero ou um. Se ele for um, este
+    será um líder.
+
+-   Toda Coluna que tem um líder em todos os outros elementos são nulos;
+:::
+
+## Exemplo
+
+::: {style="height:500px; font-size:30px; margin-left: 5px; margin-right: 5px"}
+
+**Exemplo:** As matrizes $A$, $B$ e $C$ a seguir, estão na forma
+escalonada:
+
+$$
+A = \left(\begin{array}{ccc} 1 & 0 & 0 \\ 0 &  1 & 0 \\ 0 & 0 & 1 \end{array}\right), \quad B = \left(\begin{array}{cccc} 1 & 0 &  0 & x \\ 0 & 1 & 1 & x    \end{array}\right) \quad e \quad C = \left(\begin{array}{cc} 1 & 0 & x \\ 0 & 1 & x \\ 0 & 0 &  0  \end{array}\right)
+$$
+:::
+
+## Formas escalonadas canônicas
+
+::: {style="height:500px; font-size:30px; margin-left: 5px; margin-right: 5px"}
+
+A matriz $A_{mn}$ está na forma escalonada canônica se estiver na forma
+escalonada com todas as linhas nulas abaixo das linhas não nulas.
+
+### Exemplo
+
+A matriz $A_{33}$ está na forma escalonada canônica.
+
+$$
+A_{33} = \left(\begin{array}{ccc} 1 & 0 & -1 \\ 0 &  1 & -1 \\ 0 & 0 & 0 \end{array}\right)
+$$
+:::
+
+## Exemplo
+
+Dada a matriz
+$A_{33} = \left(\begin{array}{ccc} 4 & 2 & 2 \\ 2 & 2 & 0 \\ 2 & 0 & 2 \end{array}\right)$
+obtenha sua forma escalonada canônica.
+
+[Resolução](https://github.com/pedroallmeiida/Modelos_Lineares/blob/main/exemplo_escalonada.jpeg)
+
+## Forma de Hermite-H
+
+Uma matriz $A_{nn}$ está na forma de Hermite, se estiver na forma
+escalonada canônica e os líderes ocupam a diagonal principal.
+
+**Exemplo:** A matriz $A_{33}$ do exemplo anterior, está na forma de
+Hermite.
+
+
+## Posto ou Rank de uma matriz
+
+**Definição:** Dada uma matriz $A_{mn}$, definimos o posto de $A$,
+denotado por $r(A)$, o número de linhas não nulas de sua forma
+escalonada canônica.
+
+## Exemplo
+
+Dada a matriz
+$A = \left(\begin{array}{ccc} 4 & 2 & 2 \\ 2 & 2 & 0 \\ 2 & 0 & 2 \end{array}\right)$
+
+Usando o algoritmo de Gauss obtém-se a seguinte forma:
+
+$$
+\left( A \mid I \right) \sim \cdots \sim \left( H \mid L \right)
+$$
+[Resolução](https://github.com/pedroallmeiida/Modelos_Lineares/blob/main/exemplo_HL_1-merged.pdf)
+
+
+
+## Segue do exemplo anterior que:
+
+1.  $H$ é a forma de Hermite de $A$ e $r(A) = 2$;
+
+2.  $LA = H$. Isto é,
+
+$$
+LA = \left(\begin{array}{ccc} 1/2 & -1/2 & 0 \\ -1/2 &  1 & 0 \\ 1 & -1 & -1 \end{array}\right) \left(\begin{array}{ccc} 4 & 2 & 2 \\ 2 &  2 & 0 \\ 2 & 0 & 2 \end{array}\right) \\
+= \left(\begin{array}{ccc} 1 & 0 & 1 \\ 0 &  1 & -1 \\ 0 & 0 & 0 \end{array}\right)
+$$
+
+3.  $ALA = A$
+
+4.  Se $A_{nn}$ tem $r(A) = n$, então:
+
+-   $H = I_{nn}$
+-   $A_{nn}$ é não singular e tem posto completo
+
+5.  Se $A_{nn}$, tem $r(A) = n$, então $A_{mn}$ tem posto coluna
+    completo como por exemplo:
+
+$$
+X = \left(\begin{array}{ccc} 1 & 2 \\ 1 &  4  \\ 1 & 3  \\ 1 & 5 \end{array}\right) \sim \cdots \sim \left(\begin{array}{ccc} 1 & 0 \\ 0 &  1 \\ 0 & 0 \\ 0 & 0  \end{array}\right)
+$$
+
+Então, $r(X) = 2$.
+
+7.  Se $A_{mn}$, tem $r(A) < min\{ m, n \}$, então $A_{mn}$ é de posto
+    incompleto.
+
+$$
+X = \left(\begin{array}{ccc} 1 & 1 & 0\\ 1 &  1 & 0 \\ 1 & 0 & 1  \\ 1 & 0 & 1  \end{array}\right) \sim \cdots \sim \left(\begin{array}{ccc} 1 & 0 & 1\\ 0 & 1 &  -1 \\ 0 & 0 & 0 \\ 0 & 0 & 0  \end{array}\right)
+$$ Logo, $r(X) = 2$.
+
+## Inversa de matrizes não singulares
+
+Dada a matriz quadrada $A_{nn}$ de posto $n$, então existe $A^{-1}$, tal
+que $A^{-1}A = AA^{-1} = I$. Sendo assim, $A$ é dita não singular e
+$A^{-1}$ é sua inversa única.
+
+Para obter $A^{-1}$ utilizamos o algoritmo de Gauss,
+
+$$
+(A \mid I) \sim \cdots \sim (I \mid A^{-1})
+$$
+
+## Exemplo
+
+Seja a matriz
+$A_{33} = \left(\begin{array}{ccc} 1 & 2 & 1\\ 2 & 1 & 0 \\ 1 & 1 & 1 \end{array}\right)$.
+Encontre $A^{-1}$.
+
+[Resolução](https://github.com/pedroallmeiida/Modelos_Lineares/blob/main/exemplo_inversa1-merged.pdf)
+
+
+
+
+
+
+

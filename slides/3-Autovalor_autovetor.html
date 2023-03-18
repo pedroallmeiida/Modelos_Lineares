@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<script src="Modelos_Lineares_Introducao_files/libs/clipboard/clipboard.min.js"></script>
-<script src="Modelos_Lineares_Introducao_files/libs/quarto-html/tabby.min.js"></script>
-<script src="Modelos_Lineares_Introducao_files/libs/quarto-html/popper.min.js"></script>
-<script src="Modelos_Lineares_Introducao_files/libs/quarto-html/tippy.umd.min.js"></script>
-<link href="Modelos_Lineares_Introducao_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="Modelos_Lineares_Introducao_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
-<link href="Modelos_Lineares_Introducao_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<script src="3-Autovalor_autovetor_files/libs/clipboard/clipboard.min.js"></script>
+<script src="3-Autovalor_autovetor_files/libs/quarto-html/tabby.min.js"></script>
+<script src="3-Autovalor_autovetor_files/libs/quarto-html/popper.min.js"></script>
+<script src="3-Autovalor_autovetor_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="3-Autovalor_autovetor_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="3-Autovalor_autovetor_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
+<link href="3-Autovalor_autovetor_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.0.36">
 
   <meta name="author" content="Pedro Almeida">
-  <title>Modelos Lineares (Introdução)</title>
+  <title>Autovalor e Autovetor</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="Modelos_Lineares_Introducao_files/libs/revealjs/dist/reset.css">
-  <link rel="stylesheet" href="Modelos_Lineares_Introducao_files/libs/revealjs/dist/reveal.css">
+  <link rel="stylesheet" href="3-Autovalor_autovetor_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="3-Autovalor_autovetor_files/libs/revealjs/dist/reveal.css">
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -24,12 +24,12 @@
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
   </style>
-  <link rel="stylesheet" href="Modelos_Lineares_Introducao_files/libs/revealjs/dist/theme/quarto.css" id="theme">
+  <link rel="stylesheet" href="3-Autovalor_autovetor_files/libs/revealjs/dist/theme/quarto.css" id="theme">
   <link rel="stylesheet" href="hscroll.css">
-  <link href="Modelos_Lineares_Introducao_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-  <link href="Modelos_Lineares_Introducao_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-  <link href="Modelos_Lineares_Introducao_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="Modelos_Lineares_Introducao_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <link href="3-Autovalor_autovetor_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="3-Autovalor_autovetor_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="3-Autovalor_autovetor_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="3-Autovalor_autovetor_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
 
   .callout {
@@ -321,211 +321,66 @@
     <div class="slides">
 
 <section id="title-slide" data-background-image="Marca_UEPB.png" data-background-opacity="0.1" data-background-size="contain" class="center">
-  <h1 class="title">Modelos Lineares (Introdução)</h1>
+  <h1 class="title">Autovalor e Autovetor</h1>
   <p class="author">Pedro Almeida</p>
 </section>
 
-<section id="apresentação-do-curso" class="title-slide slide level1 center">
-<h1>Apresentação do curso</h1>
-<div style="height:500px; overflow:auto">
-<ol type="1">
-<li><p>Unidade I</p>
-<ul>
-<li><p>Resultados matriciais,</p></li>
-<li><p>Inversa generalizada: definição,</p></li>
-<li><p>Solução de sistemas lineares,</p></li>
-<li><p>Principais teoremas</p></li>
-<li><p>Formas quadráticas: definição, classificação, derivadas de formas lineares e quadráticas.</p></li>
-<li><p>Distribuição e independência de formas quadráticas sob normalidade e principais teoremas</p></li>
-</ul>
-<ol start="2" type="1">
-<li>Unidade II:</li>
-</ol>
-<ul>
-<li><p>Introdução aos modelos linares: o modelo linear geral, o modelo linear de Gauss Markov: O sistema de equações normais e soluções.</p></li>
-<li><p>Estimação em modelos lineares: estimabilidade, funções lineares estimáveis e propriedades dos estimadores e estimação pontual e intervalar.</p></li>
-<li><p>Testes de hipóteses para os parâmetros e para funções lineares dos parâmetros.</p></li>
-<li><p>Aplicação aos modelos lineares de regressão e planos experimentais.</p></li>
-</ul></li>
-</ol>
-</div>
-</section>
-
-<section id="avaliação" class="title-slide slide level1 center">
-<h1>Avaliação</h1>
-<div style="height:500px; font-size:30px; margin-left: 5px; margin-right: 5px">
-<ol type="1">
-<li><p><strong>Unidade 1:</strong></p>
-<ul>
-<li>Prova teórica</li>
-</ul></li>
-<li><p><strong>Unidade 2:</strong></p>
-<ul>
-<li>Seminários (individuais)</li>
-</ul></li>
-<li><p><strong>Nota final:</strong></p>
-<ul>
-<li><p>Média dos seminários</p></li>
-<li><p>Reposição : Prova teórica</p></li>
-<li><p>Prova final: Prova teórica</p></li>
-</ul></li>
-</ol>
-</div>
-</section>
-
-<section id="referências-usadas-no-curso" class="title-slide slide level1 center">
-<h1>Referências usadas no curso</h1>
-<div style="height:500px; overflow:auto">
-<p>[1] LUNA, J. G.; OLINDA, R. A. <strong>Introdução a Modelos Lineares</strong>. Livraria da Física e Eduepb, Campina Grande-PB, 2014.</p>
-<p><img data-src="images/paste-79F74952.png" width="267"></p>
-<p>[2] SEARLE, S.R. <strong>Linear Models</strong>. John Wiley &amp; Sons, Inc.&nbsp;1997.</p>
-<p><img data-src="images/paste-2FF1A80A.png" width="265"></p>
-</div>
+<section id="autovalores" class="title-slide slide level1 center" style="height:500px; font-size:30px; margin-left: 5px; margin-right: 5px">
+<h1>Autovalores</h1>
+<p><strong>Definição:</strong> Dada uma matriz quadrada real <span class="math inline">\(A_{nn}\)</span>, então a equação <span class="math inline">\(\delta\left( A_{nn} - \lambda \mathbb{I}_{nn} \right) = det( A_{nn} - \lambda \mathbb{I}_{nn} ) = 0\)</span> é definida como a equação característica de <span class="math inline">\(A\)</span>. Suas raízes são chamadas de raízes características (ou autovalores) de <span class="math inline">\(\boldsymbol A\)</span>.</p>
+<p><strong>Exemplo:</strong> Seja a matriz <span class="math inline">\(A = \left( \begin{array}{cc} 2 &amp; 1 \\ 1 &amp; 2 \end{array} \right)\)</span>, obtenha os autovalores de <span class="math inline">\(A\)</span>.</p>
 </section>
 
 <section>
-<section id="conceitos-matriciais" class="title-slide slide level1 center">
-<h1>Conceitos Matriciais</h1>
-
+<section id="autovetor" class="title-slide slide level1 center">
+<h1>Autovetor</h1>
+<p><strong>Definição:</strong> Os vetores <span class="math inline">\(\boldsymbol x\)</span>, tais que: <span class="math inline">\(\left( \boldsymbol{A}_{nn} - \lambda \boldsymbol{\mathbb{I}}_{nn} \right)\boldsymbol x = \boldsymbol 0\)</span> são os autovetores de <span class="math inline">\(\boldsymbol A\)</span>.</p>
+<p><strong>Exemplo:</strong> Considere a matriz do exemplo anterior e calcule os autovetores de <span class="math inline">\(\boldsymbol A\)</span>.</p>
 </section>
-<section id="definição-matriz" class="slide level2">
-<h2>Definição Matriz</h2>
-<div style="height:500px; font-size:30px; margin-left: 5px; margin-right: 5px">
-<p><strong>Definição :</strong> Uma matriz é, em geral, um arranjo retangular de elementos em linhas e colunas</p>
-<p><em>Obs</em>: Geralmente as matrizes são representadas por letras maiúsculas em negrito e será constituída de elementos pertencentes ao conjunto dos números reais.</p>
-<p><strong>Exemplo:</strong> São exemplos de matrizes:</p>
+<section id="norma" class="slide level2">
+<h2>Norma</h2>
+<p><strong>Definição:</strong> A norma de um vetor <span class="math inline">\(\boldsymbol x\)</span> é defininda como:</p>
 <p><span class="math display">\[
-\boldsymbol A =\left(\begin{array}{ccc}1 &amp; 2 &amp; -1 \\2 &amp; -3 &amp; 0 \\-1 &amp; 1 &amp; 3\end{array}\right);
-\boldsymbol B =\left(\begin{array}{cc}1 &amp; 2  \\5 &amp; -3  \end{array}\right) \quad e \quad
-\boldsymbol C =\left(\begin{array}{cc}1 &amp; 2 \\ -1 &amp; 2 \\ -1 &amp; 1 \end{array}\right)
+|| \boldsymbol x || =  \sqrt{ \boldsymbol x^{\top} \boldsymbol x } = \sqrt{ \sum_{i=1}^{n} x_i^2 }
 \]</span></p>
-</div>
+<p><strong>Exemplo:</strong> Seja <span class="math inline">\(\boldsymbol x_1 = \left( \begin{array}{c} 1 \\ 1 \end{array} \right)\)</span> e <span class="math inline">\(\boldsymbol x_2 = \left( \begin{array}{c} 1 \\ -1 \end{array} \right)\)</span>. Calcule <span class="math inline">\(|| \boldsymbol x_1 ||\)</span> e <span class="math inline">\(|| \boldsymbol x_2 ||\)</span>.</p>
 </section>
-<section id="dimensão-de-uma-matriz" class="slide level2">
-<h2>Dimensão de uma matriz</h2>
-<div style="height:500px; font-size:30px; margin-left: 5px; margin-right: 5px">
-<p><strong>Definição:</strong> Dimensão é um par ordenado de números naturais que descreve o número de linhas e o número de colunas de uma matriz.</p>
-<p><strong>Exemplo:</strong> As matrizes <span class="math inline">\(\boldsymbol{A}\)</span>, <span class="math inline">\(\boldsymbol B\)</span> e <span class="math inline">\(\boldsymbol C\)</span> citadas anteriormente com suas respectivas ordens são</p>
-<ul>
-<li><p><span class="math inline">\(\boldsymbol A_{3 \times 3}\)</span> ou <span class="math inline">\(\boldsymbol A_{3\, 3}\)</span>, isto é, a matriz possui três linhas e três colunas</p></li>
-<li><p><span class="math inline">\(\boldsymbol B_{2 \times 2}\)</span> ou <span class="math inline">\(\boldsymbol B_{2 \, 2}\)</span>, isto é, a matriz possui duas linhas e duas colunas</p></li>
-<li><p><span class="math inline">\(\boldsymbol C_{3 \times 2}\)</span> ou <span class="math inline">\(\boldsymbol C_{3 \, 2}\)</span>, isto é, a matriz possui três linhas e duas colunas.</p></li>
-</ul>
-</div>
+<section id="vetor-normalizado" class="slide level2">
+<h2>Vetor Normalizado</h2>
+<p><strong>Definição:</strong> É definido como <span class="math inline">\(\boldsymbol u = \frac{1}{||\boldsymbol x||} \boldsymbol x\)</span>.</p>
+<p><strong>Exemplo:</strong> Para os vetores <span class="math inline">\(\boldsymbol x_1\)</span> e <span class="math inline">\(\boldsymbol x_2\)</span> do exemplo anterior, obtenha o vetor normalizado para cada um deles.</p>
 </section>
-<section id="forma-geral-de-uma-matriz" class="slide level2">
-<h2>Forma Geral de uma matriz</h2>
-<div style="height:500px; font-size:30px; margin-left: 5px; margin-right: 5px">
-<p><strong>Forma Geral:</strong> De modo geral, uma matriz <span class="math inline">\(\boldsymbol A\)</span> com <span class="math inline">\(m\)</span> linhas e <span class="math inline">\(n\)</span> colunas é representada por:</p>
+<section id="vetores-ortogonais" class="slide level2">
+<h2>Vetores ortogonais</h2>
+<p>Definição: Dois vetores <span class="math inline">\(x\)</span> e <span class="math inline">\(y\)</span> são ortogonais se, somente se,</p>
 <p><span class="math display">\[
-\boldsymbol A_{m \times n} =\left( \begin{array}{ccccc}a_{11} &amp; a_{12} &amp; a_{13} &amp; \ldots &amp; a_{1n} \\a_{21} &amp; a_{22} &amp; a_{23} &amp; \ldots &amp; a_{2n} \\\vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\a_{m1} &amp; a_{m2} &amp; a_{m3} &amp; \cdots &amp; a_{mn}\end{array}\right);
-\]</span></p>
-<p>em que <span class="math inline">\(a_{ij}\)</span> são os elementos da matriz sendo <span class="math inline">\(i = 1, \ldots, m\)</span> o índice das linhas e <span class="math inline">\(j = 1, \ldots, n\)</span> o índice que representa a coluna.</p>
-</div>
-</section></section>
-<section>
-<section id="tipos-de-matrizes" class="title-slide slide level1 center">
-<h1>Tipos de Matrizes</h1>
-
-</section>
-<section id="matriz-quadrada" class="slide level2">
-<h2>Matriz Quadrada</h2>
-<div style="height:500px; font-size:30px; margin-left: 5px; margin-right: 5px">
-<p>Definição (Matriz quadrada): Se <span class="math inline">\(A_{mn}\)</span> tem <span class="math inline">\(m=n\)</span>, então <span class="math inline">\(A_{mn}\)</span> é uma matriz quadrada.</p>
-<p>Exemplo:</p>
-<p><span class="math display">\[
-\boldsymbol A =\left(\begin{array}{ccc}1 &amp; 2 &amp; -1 \\2 &amp; -3 &amp; 0 \\-1 &amp; 1 &amp; 3\end{array}\right)
-\quad  e \quad
-\boldsymbol B =\left(\begin{array}{cc}1 &amp; 2  \\5 &amp; -3  \end{array}\right).
-\]</span></p>
-</div>
-</section>
-<section id="matriz-triangular" class="slide level2">
-<h2>Matriz Triangular</h2>
-<div style="height:500px; font-size:30px; margin-left: 5px; margin-right: 5px">
-<p>Definição: É uma matriz quadrada que tem nulos todos os elementos abaixo ou acima da diagonal principal. Isto é,</p>
-<p><span class="math display">\[
-B_{(n)}=\left( \begin{array}{rrrr}b_{11} &amp; b_{12} &amp; \cdots &amp; b_{1 n} \\ 0 &amp; b_{22} &amp; \cdots &amp; b_{2 n} \\ \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\ 0 &amp; 0 &amp; \cdots &amp; b_{n n}\end{array}\right)
-\quad  e \quad
-C_{(n)}=\left(\begin{array}{rrrr}c_{11} &amp; 0 &amp; \cdots &amp; 0 \\ c_{21} &amp; c_{22} &amp; \cdots &amp; 0 \\ \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\ c_{n 1} &amp; c_{n 2} &amp; \cdots &amp; c_{n n}\end{array}\right)
-\]</span></p>
-</div>
-</section>
-<section id="matriz-diagonal" class="slide level2">
-<h2>Matriz Diagonal</h2>
-<p>A matriz diagonal <span class="math inline">\(D_{nn}\)</span> é uma matriz diagonal se, e somente se, <span class="math inline">\(d_{ij} = 0\)</span>, para todo <span class="math inline">\(i \neq j\)</span>. Isto é,</p>
-<p><span class="math display">\[
-D_{nn} = \left( \begin{array}{rrrr}d_{11} &amp; 0 &amp; \cdots &amp; 0 \\ 0 &amp; d_{22} &amp; \cdots &amp; 0 \\  \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\ 0 &amp; 0 &amp; \cdots &amp; d_{n n}\end{array}\right)
+\boldsymbol x^{\top} \boldsymbol y = \boldsymbol y^{\top} \boldsymbol x
 \]</span></p>
 </section>
-<section id="matriz-identidade" class="slide level2">
-<h2>Matriz Identidade</h2>
-<div style="height:500px; font-size:30px; margin-left: 5px; margin-right: 5px">
-<p><strong>Definição:</strong> É toda matriz diagonal tal que <span class="math inline">\(d_ii = 1\)</span>, para todo <span class="math inline">\(i\)</span>.</p>
-<p><span class="math display">\[
-I_{(n)}=\left(\begin{array}{cccc}1 &amp; 0 &amp; \cdots &amp; 0 \\ 0 &amp; 1 &amp; \cdots &amp; 0 \\ \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\ 0 &amp; 0 &amp; \cdots &amp; 1\end{array}\right)=\operatorname{diag}\{1,1, \cdots, 1\}.
-\]</span></p>
-</div>
+<section id="exemplo" class="slide level2">
+<h2>Exemplo</h2>
+<p>Dados os vetores <span class="math inline">\(\boldsymbol x = \left( \begin{array}{c} 1 \\ 1 \\ -2 \end{array} \right)\)</span> e <span class="math inline">\(\boldsymbol y = \left( \begin{array}{c} 1 \\ -1 \\ 0 \end{array} \right)\)</span>. Mostre que <span class="math inline">\(\boldsymbol x^{\top}\boldsymbol y = \boldsymbol y^{\top}\boldsymbol x = 0\)</span></p>
 </section>
-<section id="matriz-simétrica" class="slide level2">
-<h2>Matriz Simétrica</h2>
-<div style="height:500px; font-size:30px; margin-left: 5px; margin-right: 5px">
-<p>Definição: Se uma matriz quadrada <span class="math inline">\(A_{nn} = a_{ij}\)</span> tem <span class="math inline">\(a_{ij} = a_{ji}\)</span></p>
-<p><span class="math display">\[
-A' = A^{\top} = (a_{ij}).
-\]</span></p>
-<p><strong>Exemplo:</strong> A matriz <span class="math inline">\(\boldsymbol{A}\)</span>, dada a seguer, <span class="math inline">\(E\)</span> simétrica,</p>
-<p><span class="math display">\[
-A=\left(\begin{array}{rrr}
-5 &amp; 2 &amp; 3 \\
-2 &amp; 9 &amp; -1 \\
-3 &amp; -1 &amp; 4
-\end{array}\right)
-\]</span></p>
-<p>Pois, <span class="math inline">\(a_{12}=a_{21}=2, a_{13}=a_{31}=3\)</span> e <span class="math inline">\(a_{23}=a_{32}=-1\)</span>.</p>
-</div>
+<section id="teorema-propriedades-dos-autovalores" class="slide level2">
+<h2>Teorema (propriedades dos autovalores)</h2>
+<p>Dada uma matriz quadrada real <span class="math inline">\(A_{nn}\)</span> com autovalores <span class="math inline">\(\lambda_i \, (i = 1, \ldots, n)\)</span>. Então,</p>
+<ol type="1">
+<li><p><span class="math inline">\(\lambda_i \neq 0\)</span>, <span class="math inline">\(\forall i\)</span> se e só se, <span class="math inline">\(\boldsymbol A\)</span> é não singular</p></li>
+<li><p>Se <span class="math inline">\(r(\boldsymbol A) = k &lt; n\)</span>, então <span class="math inline">\(\boldsymbol A\)</span> tem <span class="math inline">\(k\)</span> autovalores não nulos e <span class="math inline">\(n-k\)</span> autovalores nulos.</p></li>
+<li><p>Se <span class="math inline">\(A_{nn}\)</span> é não singular, então as raízes de <span class="math inline">\(\boldsymbol A^{-1}\)</span> são <span class="math inline">\(\frac{1}{\lambda_i}\)</span>, <span class="math inline">\(i = 1, \ldots, n\)</span></p></li>
+<li><p><span class="math inline">\(tr(\boldsymbol A) = \sum_{i=1}^{n} \lambda_i\)</span></p></li>
+<li><p><span class="math inline">\(det(\boldsymbol A) = \prod\limits_{i=1}^{n} \lambda_i\)</span></p></li>
+</ol>
 </section>
-<section id="matriz-transposta" class="slide level2">
-<h2>Matriz Transposta</h2>
-<div style="height:500px; font-size:30px; margin-left: 5px; margin-right: 5px">
-<p><strong>Definição:</strong> Dada uma matriz <span class="math inline">\(A_{mn} = a_{ij}\)</span>, sua transposta, denotada por <span class="math inline">\(A'\)</span> ou <span class="math inline">\(A^{\top}\)</span>, é dada por:</p>
-<p><span class="math display">\[
-A' = A^{\top} = (a_{ji}).
-\]</span></p>
-<p><strong>Exemplo:</strong> Seja</p>
-<p><span class="math display">\[
-A_{23} = \left(\begin{array}{rrr}
-5 &amp; 10 &amp; 3 \\
-1 &amp; 5 &amp; -1 \\
-\end{array}\right)
-\]</span></p>
-<p>Encontre a matriz transposta <span class="math inline">\(A^{\top}\)</span>.</p>
-</div>
-</section>
-<section id="vetor" class="slide level2">
-<h2>Vetor</h2>
-<div style="height:500px; font-size:25px; margin-left: 5px; margin-right: 5px">
-<p>Se uma matriz <span class="math inline">\(A_{mm}\)</span> é tal que <span class="math inline">\(m=1\)</span> ou <span class="math inline">\(n=1\)</span>, então, <span class="math inline">\(A_{m1}\)</span> é um vetor coluna e <span class="math inline">\(A_{1n}\)</span> é um vetor linha.</p>
-<p><strong>Exemplo:</strong></p>
-<ul>
-<li>Vetor coluna:</li>
-</ul>
-<p><span class="math display">\[
-A_{31} = \left(\begin{array}{r}
-1  \\
-5  \\
-3
-\end{array}\right)
-\]</span></p>
-<ul>
-<li>Vetor Linha:</li>
-</ul>
-<p><span class="math display">\[
-A_{13} = \left(\begin{array}{r}
-1  &amp; 5 &amp; 3\\
-\end{array}\right)
-\]</span></p>
-</div>
+<section id="teorema" class="slide level2">
+<h2>Teorema</h2>
+<p>Seja a matriz quadrada real <span class="math inline">\(\boldsymbol A_{nn}\)</span> e <span class="math inline">\(\lambda_i\)</span> os autovalores. Então:</p>
+<ol type="1">
+<li><p>Se <span class="math inline">\(\lambda_i &gt; 0, \forall i\)</span>, então, <span class="math inline">\(\boldsymbol A\)</span> é positiva definida</p></li>
+<li><p>Se <span class="math inline">\(\lambda_i \geq 0\)</span>, <span class="math inline">\(\forall i\)</span> e <span class="math inline">\(\exists \, \lambda_i = 0\)</span>, então, <span class="math inline">\(\boldsymbol A\)</span> é semi positiva definida;</p></li>
+<li><p><span class="math inline">\(\lambda_i &lt; 0\)</span>, <span class="math inline">\(\forall i\)</span>, então, <span class="math inline">\(\boldsymbol A\)</span> é negativa definida;</p></li>
+<li><p>Se <span class="math inline">\(\lambda_i \leq 0\)</span>, <span class="math inline">\(\forall i\)</span> e <span class="math inline">\(\exists \, \lambda_i = 0\)</span>, então, <span class="math inline">\(\boldsymbol A\)</span> é semi negativa definida;</p></li>
+</ol>
 
 <img src="Marca_UEPB.png" class="slide-logo r-stretch"><div class="footer footer-default">
 
@@ -535,19 +390,19 @@ A_{13} = \left(\begin{array}{r}
   </div>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script>
-  <script src="Modelos_Lineares_Introducao_files/libs/revealjs/dist/reveal.js"></script>
+  <script src="3-Autovalor_autovetor_files/libs/revealjs/dist/reveal.js"></script>
   <!-- reveal.js plugins -->
-  <script src="Modelos_Lineares_Introducao_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
-  <script src="Modelos_Lineares_Introducao_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
-  <script src="Modelos_Lineares_Introducao_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
-  <script src="Modelos_Lineares_Introducao_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="Modelos_Lineares_Introducao_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  <script src="3-Autovalor_autovetor_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="3-Autovalor_autovetor_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="3-Autovalor_autovetor_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="3-Autovalor_autovetor_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="3-Autovalor_autovetor_files/libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
-  <script src="Modelos_Lineares_Introducao_files/libs/revealjs/plugin/notes/notes.js"></script>
-  <script src="Modelos_Lineares_Introducao_files/libs/revealjs/plugin/search/search.js"></script>
-  <script src="Modelos_Lineares_Introducao_files/libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="Modelos_Lineares_Introducao_files/libs/revealjs/plugin/math/math.js"></script>
+  <script src="3-Autovalor_autovetor_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="3-Autovalor_autovetor_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="3-Autovalor_autovetor_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="3-Autovalor_autovetor_files/libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>
