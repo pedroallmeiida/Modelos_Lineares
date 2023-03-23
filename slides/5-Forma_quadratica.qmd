@@ -1,0 +1,166 @@
+---
+title: "Forma Quadrática"
+title-slide-attributes:
+  data-background-image: Marca_UEPB.png
+  data-background-size: contain
+  data-background-opacity: "0.1"
+author: "Pedro Almeida"
+format: 
+  revealjs: 
+    logo: Marca_UEPB.png
+    theme: solarized
+    transition: slide
+    background-transition: fade
+    smaller: false
+    scrollable: true
+knitr:
+  opts_chunk:
+    message: false
+    warning: false
+css: hscroll.css
+editor: 
+  markdown: 
+    wrap: 72
+---
+
+::: {style="height:800px; font-size:30px; margin-left: 5px; margin-right: 5px"}
+
+
+# Conceitos
+
+- Uma expressão do tipo $f(\boldsymbol x) = \boldsymbol a^{\top} \boldsymbol x = \boldsymbol x^{\top} \boldsymbol a = a_1x_1 + \cdots + a_nx_n$, em que $\boldsymbol a$ é um vetor de constantes reais $n \times 1$ e $\boldsymbol x$ é um vetor de $n$ variáveis independentes é chamada de forma linear;
+
+
+- Uma função do tipo $Q(\boldsymbol x, \boldsymbol y) = \boldsymbol x^{\top} A \boldsymbol y$ é chamada de forma bilinear;
+
+Exemplo: 
+$$
+\boldsymbol x^{\top} A \boldsymbol y = (x_1 \quad x_2)
+\left( \begin{array}{cc}
+2 & 7 \\
+-3 & 5 \\
+\end{array}
+\right)
+\left( \begin{array}{cc}
+y_1 \\
+y_2 \\
+\end{array}
+\right) = 2x_1y_1 - 3x_2y_1 + 7x_1y_2 + 5x_2y_2
+$$
+:::
+
+
+## forma quadrática
+
+
+**Definição:** Uma função do tipo 
+
+$$
+Q(\boldsymbol x) = \boldsymbol x^{\top} \boldsymbol A \boldsymbol x = \sum_{i,j} a_{ij} x_i x_j
+,
+$$
+em que $\boldsymbol x = ( x_1 \quad x_2 \quad \cdots \quad x_n )^{\top}$ é um vetor de variáveisreais $n \times 1$, $\boldsymbol A$ é uma matriz simétrica de constantes reais $n \times n$, é chamada de uma forma quadrática de $\boldsymbol x$.
+
+## Casos de interesse na estatística
+
+Seja $\boldsymbol I$ uma matriz identidade e $\boldsymbol J$ uma matriz de uns, ambas de tamanho $n$ e o vetor $\boldsymbol x = ( x_1 \quad x_2 \quad \cdots \quad x_n )^{\top}$, então 
+
+1. Se $\boldsymbol A$ = $\boldsymbol I$, então, $Q(\boldsymbol x) = \boldsymbol x^{\top} \boldsymbol I \boldsymbol x = \sum_{i=1}^{n} x_i^2$
+
+2. Se $\boldsymbol A$ = $\boldsymbol J$, então, $Q(\boldsymbol x) = \boldsymbol x^{\top} \boldsymbol J \boldsymbol x = \left(\sum_{i=1}^{n} x_i\right)^2$.
+
+3. A variância amostral dos elementos de $\boldsymbol x$ pode ser obtida a partir da expressão 
+
+$$
+S^2 = \frac{1}{n-1} \left[  \boldsymbol x^{\top} \boldsymbol I \boldsymbol x - \frac{\boldsymbol x^{\top} \boldsymbol J \boldsymbol x}{n} \right]
+$$
+::: {style="height:600px; font-size:30px; margin-left: 5px; margin-right: 5px"}
+
+
+## Classificação de formas quadráticas
+
+Dada a forma quadrática $Q(\boldsymbol y) = \boldsymbol y^{\top} \boldsymbol A \boldsymbol y$, no que se refere a sua classificação, temos:
+
+1. Se $Q(\boldsymbol y) > 0$, $\forall \boldsymbol y \neq \boldsymbol 0$, então, $Q(\boldsymbol y)$ é positiva definida;
+
+2. Se $Q(\boldsymbol y) \geq 0$ para $\boldsymbol y \neq \boldsymbol 0$ e existe pelo menos um $\boldsymbol y \neq \boldsymbol 0$, tal que $Q(\boldsymbol y) = 0$, então $Q(\boldsymbol y)$ é semi positiva definida.
+
+3. Se $Q(\boldsymbol y) < 0$, $\forall \boldsymbol y \neq \boldsymbol 0$, então, $Q(\boldsymbol y)$ é negativa definida;
+
+4. Se $Q(\boldsymbol y) \leq 0$ para $\boldsymbol y \neq \boldsymbol 0$ e existe pelo menos um $\boldsymbol y \neq \boldsymbol 0$, tal que $Q(\boldsymbol y) = 0$, então $Q(\boldsymbol y)$ é semi negativa definida.
+
+5. Se $Q(\boldsymbol y)$ muda de sinal conforme a escolha de $\boldsymbol y \neq 0$, então, $Q(\boldsymbol y)$ é não definida.
+:::
+
+## Teorema 
+
+Se $\boldsymbol A_{nn}$ é real e simétrica de posto $k \leq n$, então a forma quadrática $Q(\boldsymbol x) = \boldsymbol x^{\top}\boldsymbol A \boldsymbol x$ pode ser escrita na forma seguinte: 
+
+$$
+Q(\boldsymbol y) = \sum\limits_{i=1}^{n} \lambda_iy_i^2
+$$
+em que $\lambda_i$, $i = 1,2, \ldots, k$ são os autovalores de $\boldsymbol A$. 
+
+::: {style="height:800px; font-size:30px; margin-left: 5px; margin-right: 5px"}
+
+## Derivadas de Formas Quadráticas
+
+- Em muitas situações é necessário obter as derivadas (parciais) de uma função com respeito as variáveis envolvidas. 
+
+- Por exemplo, considere a função das variáveis $x_1, x_2$ e $x_3$, dada por
+
+$$
+f(x_1, x_2, x_3) = 6x^2_1 - 2x_1x_2 + x_3^2, \quad -\infty < x_i < \infty, \quad i=1,2,3.
+$$
+e suponha que é necessário obter as três derivadas parciais 
+
+$$
+\frac{\partial f(\boldsymbol x)}{\partial x_1}, \quad \frac{\partial f(\boldsymbol x)}{\partial x_2} \quad e \quad \frac{\partial f(\boldsymbol x)}{\partial x_3} 
+$$
+:::
+
+## Vetor de derivadas 
+
+Desde que $f(\boldsymbol x)$ possa ser escrita como uma função do vetor $\boldsymbol x$, podemos expressar as três derivadas parciais como um vetor. Definimos então
+
+$$
+\frac{\partial f(\boldsymbol x)}{\partial \boldsymbol x} = \left(
+\begin{align}
+\frac{\partial f(\boldsymbol x)}{\partial x_1} \\ \frac{\partial f(\boldsymbol x)}{\partial x_2}  \\ \frac{\partial f(\boldsymbol x)}{\partial x_3}
+\end{align}
+\right)
+$$
+## Definição (Derivada da função de um vetor) 
+
+Seja $f(\boldsymbol x)$ uma função de $n$ variáveis reais independentes $X_1, \ldots, X_n$. A derivada de $f(\boldsymbol x)$ com respeito ao vetor $\boldsymbol x = [ x_1 \quad x_2 \quad \cdots \quad x_n ]^{\top}$, é denotada por 
+
+$$
+\frac{\partial f(\boldsymbol x)}{\partial \boldsymbol x} = \left(
+\begin{align}
+\frac{\partial f(\boldsymbol x)}{\partial x_1} \\ \vdots  \\ \frac{\partial f(\boldsymbol x)}{\partial x_n}
+\end{align}
+\right)
+$$
+
+## Teorema (derivada de uma forma linear)
+
+Seja $f(\boldsymbol x)$ uma função linear de $n$ variáveis independentes definidas por 
+
+$$
+f(\boldsymbol x) = \sum\limits_{i=1}^{n} a_ix_i = \boldsymbol a^{\top}\boldsymbol x = \boldsymbol x^{\top} \boldsymbol a
+$$
+em que $\boldsymbol a = ( a_1 \quad \cdots \quad a_n )^{\top}$ e os a_i's são constantes quaisquer. Então,
+
+$$
+\frac{\partial f(\boldsymbol x)}{\partial \boldsymbol x} = \boldsymbol a
+$$
+
+## Teorema (Derivada de uma forma quadrática)
+
+Seja $Q(\boldsymbol x)$ uma forma quadrática em $n$ variáveis independentes $x_1, \ldots, x_n$ definida por $Q(\boldsymbol x) = \boldsymbol x^{\top} A \boldsymbol x$, em que $\boldsymbol A_{nn}$ é uma matriz simétrica com constantes reais. Então 
+
+$$
+\frac{ \partial Q(\boldsymbol x)}{\partial \boldsymbol x} = \boldsymbol 2 A \boldsymbol x
+$$
+
+
