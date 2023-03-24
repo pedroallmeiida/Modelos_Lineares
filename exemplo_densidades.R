@@ -2,8 +2,8 @@
 ## funcao de densidade marginal da distribuição normal
 
 fdp_norm <- function( x, sigma2, mu ){
-  n = length(x)  
-  fx = ( (2*pi*sigma2)^(-1/2) )*exp(  (-1/(2*sigma2))*( (x - mu)^2  )   )
+  n = 1  
+  fx = ( (2*pi*sigma2)^(-n/2) )*exp(  (-1/(2*sigma2))*( (x - mu)^2  )   )
   return(fx)
 }
 
@@ -13,7 +13,7 @@ fdp_norm <- function( x, sigma2, mu ){
 par(mfrow = c(1, 2))
 
 x <- seq(70, 130, length.out = 100)
-ver <- veros( x, sigma2 = 10^2, mu = 100  )
+ver <- fdp_norm( x, sigma2 = 10^2, mu = 100  )
 plot(x, ver, type = "l")
 
 
@@ -30,6 +30,18 @@ dens_conj_norm <- function( x, sigma2, mu ){
   fx = ( (2*pi*sigma2)^(-n/2) )*exp(  (-1/(2*sigma2))*sum( (x - mu)^2  )   )
   return(fx)
 }
+
+logveros_norm <- function( x, sigma2, mu ){
+  n = length(x)  
+  fx = ( (2*pi*sigma2)^(-n/2) )*exp(  (-1/(2*sigma2))*sum( (x - mu)^2  )   )
+  return(fx)
+}
+
+
+
+
+
+
 
 
 
