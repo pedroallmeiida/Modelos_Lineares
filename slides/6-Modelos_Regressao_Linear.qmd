@@ -1,0 +1,107 @@
+---
+title: "Modelo de regressão linear"
+title-slide-attributes:
+  data-background-image: Marca_UEPB.png
+  data-background-size: contain
+  data-background-opacity: "0.1"
+author: "Pedro Almeida"
+format: 
+  revealjs: 
+    logo: Marca_UEPB.png
+    theme: solarized
+    transition: slide
+    background-transition: fade
+    smaller: false
+    scrollable: true
+knitr:
+  opts_chunk:
+    message: false
+    warning: false
+css: hscroll.css
+editor: 
+  markdown: 
+    wrap: 72
+---
+
+::: {style="height:800px; font-size:30px; margin-left: 5px; margin-right: 5px"}
+# Motivação (ML)
+
+Considere dados extraídos do censo de 2000 que apresenta para cada
+unidade da federação o número médio de anos de estudo e a renda média
+mensal dos chefes de domicílio.
+
+![](images/Fig_Dispersao.jpg){width="434"}
+:::
+
+
+## Queremos responder as seguintes perguntas:
+
+- A renda mensal dos chefes de domicílio pode ser explicada através do número médio de anos de estudo ?
+- Existe um valor numérico que quantifica a relação entre as duas variáveis?
+- Para um valor fixado de anos de estudo de um certo chefe de domicílio, qual será o valor previsto para a renda mensal dos chefes de domicílio?
+- O quanto da variabilidade da renda mensal pode ser explicado através do número médio de anos de estudo?
+
+
+## Introdução 
+
+- Existem situações nas quais há interesse em estudar o comportamento conjunto de uma ou mais variáveis;
+
+- Em muitos casos, a explicação de um fenômeno de interesse pode estar associado a outros fatores (variáveis) que contribuem de algum modo para a ocorrência deste fenômeno;
+
+- O comportamento conjunto de duas variáveis quantitativas pode ser observado por meio do gráfico de dispersão.
+
+## Introdução
+
+O termo regressão foi utilizado pela primeira vez por [Galton em 1885]{.underline}, em um estudo que avaliou a relação entre a altura dos pais e filhos.
+
+- O objetivo do estudo foi avaliar como a altura do pai influenciava a altura do filho. Por esse motivo, Galton denominou de regressão, por existir uma tendência de regressão à média.
+
+- Em muitas situações, temos interesse em verificar existências de relações entre duas ou mais variáveis. Nesse sentido, a Análise de regressão linear é uma técnica estatística para modelar e quantificar a relação entre duas ou mais variáveis.
+
+## Tipos de Modelos
+
+Um modelo de regressão é um modelo estatístico em que alguma característica distribuicional da variável de interesse é afetada por outra(s) variável(is).
+
+- É uma das técnicas de modelagem mais usadas;
+- Possui ampla literatura como:
+  - Modelo de Regressão Linear Múltipla
+  - Modelo de regressão Não-Linear
+  - Modelo Linear Generalizado
+
+
+## Correlação linear 
+
+- No entanto, antes de propor um modelo de regressão é importante verificar o grau de correlação entre as variáveis independentes $\mathrm{x}$ e a variável resposta $\mathrm{y}$.
+- Além disso, nem sempre uma correlação elevada entre variáveis indica que faz sentido propor um modelo de regressão
+- Ex.: Produção de banana versus taxa de natalidade.
+- A coerência e intuição do pesquisador é muito importante no momento de propor uma relação entre $x$ e $y$.
+
+## Comportamento da correlação linear 
+
+
+![](images/gcor.jpeg){width="1000"}
+
+## Coeficiente de correlação 
+
+Mede a intensidade e a direção da relação linear entre duas variáveis.
+$$
+\begin{aligned}
+\rho(X, Y) & =\frac{\operatorname{Cov}(X, Y)}{\sigma_X \cdot \sigma_Y} \\
+& =\frac{n \sum_{i=1}^n x_i y_i-\sum_{i=1}^n x_i \sum_{i=1}^n y_i}{\sqrt{n \sum_{i=1}^n x_i^2-\left(\sum_{i=1}^n x_i\right)^2} \sqrt{n \sum_{i=1}^n y_i^2-\left(\sum_{i=1}^n y_i\right)^2}}, \quad i=1, \ldots, n .
+\end{aligned}
+$$
+em que $n$ : tamanho da amostra; $y$ : variável dependente; $x$ : variável independente; $\sigma_X$ e $\sigma_Y$ é o desvio de $\mathrm{X}$ e $\mathrm{Y}$, respectivamente; $\operatorname{Cov}(X, Y)$ é a covariância entre duas variáveis.
+
+## Interpretação coeficiente de correlação 
+
+- Se $\rho=1$ implica correlação linear positiva e perfeita;
+
+- Se $\rho=-1$ implica correlação linear negativa e perfeita;
+
+- Se $\rho=0$ inexistência de correlação linear.
+
+# Modelo de regressão Linear 
+
+
+
+

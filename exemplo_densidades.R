@@ -33,9 +33,11 @@ dens_conj_norm <- function( x, sigma2, mu ){
 
 logveros_norm <- function( x, sigma2, mu ){
   n = length(x)  
-  fx = ( (2*pi*sigma2)^(-n/2) )*exp(  (-1/(2*sigma2))*sum( (x - mu)^2  )   )
-  return(fx)
+  lv = (-n/2)*log(2*pi*sigma2) - (1/(2*sigma2))*sum( (x - mu)^2  )  
+  return(lv)
 }
+
+
 
 
 

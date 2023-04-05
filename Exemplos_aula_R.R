@@ -26,6 +26,7 @@ solve(A)
 
 ### Decomposição espectral 
 
+## Exemplo1
 A = matrix( c(4,2,2,2,2,0,2,0,2), ncol = 3, nrow =3 )
 A
 
@@ -37,4 +38,21 @@ U = eig$vectors
 
 U%*%LAMBDA%*%t(U)
 
+A
 
+
+## Exemplo2
+A = matrix( c(2,1,1,2), ncol = 2, nrow =2 )
+A
+
+eig = eigen(A)
+
+lambda = eig$values
+LAMBDA = diag(lambda)
+U = eig$vectors
+
+U%*%LAMBDA%*%t(U)
+
+
+
+A
