@@ -1,6 +1,7 @@
 
 library(maxLik)
 
+
 ## Funcao de logverossimilhanca
 
 logveros_norm <- function( x, par ){
@@ -18,6 +19,32 @@ logveros_norm <- function( x, par ){
 
 }
 
+## Funcao para chute inicial 
+
+
+chute_inicial <- function(x){
+  
+  mu = seq(1,100,10) # candidatos para chute inicial do parametro mu
+  sigma2 = seq(1,100,10) # candidatos para chute inicial do parametro sigma2
+  
+  par = tidyr::crossing(mu = mu, sigma2 = sigma2) # Combinacoes possiveis de mu e sigma2
+  
+  ## calculo da log-verossimilhança para todas as combinaçoes de mu e sigma2
+  # A ideia é que o par de parametros que apresentar o maior valor da logverossimilhança será o melhor chute inicial
+  lk=c()
+  for(i in 1:dim(par)[1]) lk[i] = as.numeric(logveros_norm( x, par[i,]  ))
+  
+  ## Criando dataset com os pares de parametros e seu respectivo valor da logverossimilhança
+  lk_por_parametro = cbind( par, lk)
+  
+  ## Ordenando pelo maior valor da logverossimilhanca 
+  chute = dplyr::arrange( .data = lk_por_parametro, desc(lk)   )
+  chute = chute[1,1:2] # selecionando o par com o maior valor de parametro 
+  return(chute)
+  
+}
+
+
 
 
 ### Experimento Monte Carlo
@@ -32,43 +59,34 @@ n = 25
 M = 1000 # quantidade de MC
 
 RESULT = matrix( NA, nrow = M, ncol = 3 )
-
-i=1
+cont_falha=c()
 
 for( i in 1:M){
   
+  conv = 1 
+  
+  while(conv != 0){  
   x = rnorm( n = n, mean = mu, sd = sqrt(sigma2)   ) # gerador da normal
   n = length(x) # tamanho do vetor de dados
-  
   lk_new = function(par)  logveros_norm(x, par)
-  chute_inicial = c(100, 100)
-  res_maxlik = maxLik(lk_new, grad = NULL, hess = NULL, start=chute_inicial, method="BFGS")
+  chute = as.numeric(chute_inicial(x))
+  res_maxlik = maxLik(lk_new, grad = NULL, hess = NULL, start=chute, method="BFGS")
   Estimate = res_maxlik$estimate 
-  Code = res_maxlik$code
-  
+  conv = res_maxlik$code
+  cont_falha = c(cont_falha,conv )
+  }
   
   ## RES: matriz com as estimativas dos parametros
-  RESULT[i,] = c(Estimate, Code)
-  
+  RESULT[i,] = c(Estimate, conv)
+  print(i)
   
 }
 
+
+sum(cont_falha)
 colMeans(RESULT)
 
 
-
-### Exemplos de chutes iniciais
-## Escolher aquele que tiver a maior verossimilhança 
-## Construa uma função que escolha o melhor chute inicial 
-
-logveros_norm( x, par=c(10,4)  )
-
-logveros_norm( x, par=c(100,50)  )
-
-logveros_norm( x, par=c(9.5,4.24)  )
-
-vec_mu = c(10, 50, 100, 111, .... )
-vec_sigma = c(1, 5, 10, 20 , ....)
 
 
 
