@@ -33,75 +33,404 @@ mensal dos chefes de domicílio.
 ![](images/Fig_Dispersao.jpg){width="434"}
 :::
 
-
 ## Queremos responder as seguintes perguntas:
 
-- A renda mensal dos chefes de domicílio pode ser explicada através do número médio de anos de estudo ?
-- Existe um valor numérico que quantifica a relação entre as duas variáveis?
-- Para um valor fixado de anos de estudo de um certo chefe de domicílio, qual será o valor previsto para a renda mensal dos chefes de domicílio?
-- O quanto da variabilidade da renda mensal pode ser explicado através do número médio de anos de estudo?
+-   A renda mensal dos chefes de domicílio pode ser explicada através do
+    número médio de anos de estudo ?
+-   Existe um valor numérico que quantifica a relação entre as duas
+    variáveis?
+-   Para um valor fixado de anos de estudo de um certo chefe de
+    domicílio, qual será o valor previsto para a renda mensal dos chefes
+    de domicílio?
+-   O quanto da variabilidade da renda mensal pode ser explicado através
+    do número médio de anos de estudo?
 
-
-## Introdução 
-
-- Existem situações nas quais há interesse em estudar o comportamento conjunto de uma ou mais variáveis;
-
-- Em muitos casos, a explicação de um fenômeno de interesse pode estar associado a outros fatores (variáveis) que contribuem de algum modo para a ocorrência deste fenômeno;
-
-- O comportamento conjunto de duas variáveis quantitativas pode ser observado por meio do gráfico de dispersão.
-
+::: {style="height:800px; font-size:35px; margin-left: 5px; margin-right: 5px"}
 ## Introdução
 
-O termo regressão foi utilizado pela primeira vez por [Galton em 1885]{.underline}, em um estudo que avaliou a relação entre a altura dos pais e filhos.
+-   Existem situações nas quais há interesse em estudar o comportamento
+    conjunto de uma ou mais variáveis;
 
-- O objetivo do estudo foi avaliar como a altura do pai influenciava a altura do filho. Por esse motivo, Galton denominou de regressão, por existir uma tendência de regressão à média.
+-   Em muitos casos, a explicação de um fenômeno de interesse pode estar
+    associado a outros fatores (variáveis) que contribuem de algum modo
+    para a ocorrência deste fenômeno;
 
-- Em muitas situações, temos interesse em verificar existências de relações entre duas ou mais variáveis. Nesse sentido, a Análise de regressão linear é uma técnica estatística para modelar e quantificar a relação entre duas ou mais variáveis.
+-   O comportamento conjunto de duas variáveis quantitativas pode ser
+    observado por meio do gráfico de dispersão.
+:::
+
+::: {style="height:800px; font-size:35px; margin-left: 5px; margin-right: 5px"}
+## História da regressão
+
+O termo regressão foi utilizado pela primeira vez por [Galton em
+1885]{.underline}, em um estudo que avaliou a relação entre a altura dos
+pais e filhos.
+
+-   O objetivo do estudo foi avaliar como a altura do pai influenciava a
+    altura do filho. Por esse motivo, Galton denominou de regressão, por
+    existir uma tendência de regressão à média.
+
+-   Em muitas situações, temos interesse em verificar existências de
+    relações entre duas ou mais variáveis. Nesse sentido, a Análise de
+    regressão linear é uma técnica estatística para modelar e
+    quantificar a relação entre duas ou mais variáveis.
+:::
 
 ## Tipos de Modelos
 
-Um modelo de regressão é um modelo estatístico em que alguma característica distribuicional da variável de interesse é afetada por outra(s) variável(is).
+Um modelo de regressão é um modelo estatístico em que alguma
+característica distribuicional da variável de interesse é afetada por
+outra(s) variável(is).
 
-- É uma das técnicas de modelagem mais usadas;
-- Possui ampla literatura como:
-  - Modelo de Regressão Linear Múltipla
-  - Modelo de regressão Não-Linear
-  - Modelo Linear Generalizado
+-   É uma das técnicas de modelagem mais usadas;
+-   Possui ampla literatura como:
+    -   Modelo de Regressão Linear Múltipla
+    -   Modelo de regressão Não-Linear
+    -   Modelo Linear Generalizado
 
+## Correlação linear
 
-## Correlação linear 
+-   No entanto, antes de propor um modelo de regressão é importante
+    verificar o grau de correlação entre as variáveis independentes
+    $\mathrm{x}$ e a variável resposta $\mathrm{y}$.
+-   Além disso, nem sempre uma correlação elevada entre variáveis indica
+    que faz sentido propor um modelo de regressão
+-   Ex.: Produção de banana versus taxa de natalidade.
+-   A coerência e intuição do pesquisador é muito importante no momento
+    de propor uma relação entre $x$ e $y$.
 
-- No entanto, antes de propor um modelo de regressão é importante verificar o grau de correlação entre as variáveis independentes $\mathrm{x}$ e a variável resposta $\mathrm{y}$.
-- Além disso, nem sempre uma correlação elevada entre variáveis indica que faz sentido propor um modelo de regressão
-- Ex.: Produção de banana versus taxa de natalidade.
-- A coerência e intuição do pesquisador é muito importante no momento de propor uma relação entre $x$ e $y$.
-
-## Comportamento da correlação linear 
-
+## Comportamento da correlação linear
 
 ![](images/gcor.jpeg){width="1000"}
 
-## Coeficiente de correlação 
+## Coeficiente de correlação
 
+::: {style="height:500px; font-size:25px; margin-left: 10px; margin-right: 10px"}
 Mede a intensidade e a direção da relação linear entre duas variáveis.
 $$
 \begin{aligned}
 \rho(X, Y) & =\frac{\operatorname{Cov}(X, Y)}{\sigma_X \cdot \sigma_Y} \\
 & =\frac{n \sum_{i=1}^n x_i y_i-\sum_{i=1}^n x_i \sum_{i=1}^n y_i}{\sqrt{n \sum_{i=1}^n x_i^2-\left(\sum_{i=1}^n x_i\right)^2} \sqrt{n \sum_{i=1}^n y_i^2-\left(\sum_{i=1}^n y_i\right)^2}}, \quad i=1, \ldots, n .
 \end{aligned}
+$$ em que $n$ : tamanho da amostra; $y$ : variável dependente; $x$ :
+variável independente; $\sigma_X$ e $\sigma_Y$ é o desvio de
+$\mathrm{X}$ e $\mathrm{Y}$, respectivamente; $\operatorname{Cov}(X, Y)$
+é a covariância entre duas variáveis.
+:::
+
+## Interpretação coeficiente de correlação
+
+-   Se $\rho=1$ implica correlação linear positiva e perfeita;
+
+-   Se $\rho=-1$ implica correlação linear negativa e perfeita;
+
+-   Se $\rho=0$ inexistência de correlação linear.
+
+# Modelo de regressão Linear
+
+::: {style="height:800px; font-size:35px; margin-left: 5px; margin-right: 5px"}
+-   Seja $Y$ uma variável resposta, e seja $X$ uma variável denominada
+    de regressora (FREIRE et al, 2008).
+
+-   O MRLS descreve a variável $Y$ como uma soma de uma quantidade
+    determinística e uma quantidade aleatória.
+
+  (i)   Parte determinística: uma reta em função de $X$.
+
+  (ii)   Parte aleatória: denominada de erro.
+:::
+
+## modelo de regressão linear simples 
+
+O modelo de regressão é chamado de simples quando envolve uma relação causal entre duas variáveis.
 $$
-em que $n$ : tamanho da amostra; $y$ : variável dependente; $x$ : variável independente; $\sigma_X$ e $\sigma_Y$ é o desvio de $\mathrm{X}$ e $\mathrm{Y}$, respectivamente; $\operatorname{Cov}(X, Y)$ é a covariância entre duas variáveis.
-
-## Interpretação coeficiente de correlação 
-
-- Se $\rho=1$ implica correlação linear positiva e perfeita;
-
-- Se $\rho=-1$ implica correlação linear negativa e perfeita;
-
-- Se $\rho=0$ inexistência de correlação linear.
-
-# Modelo de regressão Linear 
+Y=\beta_0+\beta_1 X+\epsilon
+$$
+$\beta_0$ e $\beta_1$ são os parâmetros da regressão que são desconhecidos e devem ser estimados;
+$\epsilon$, é o erro que é uma variável aleatória não-observável, em que é suposto que $\mathbf{E}(\epsilon)=0$ e $\operatorname{Var}(\epsilon)=\sigma^2$.
 
 
+## Suposições
 
+
+(S0) O modelo está correto;
+
+(S1) $\mathrm{E}\left(\epsilon_i\right)=0, \quad \forall_i$;
+
+(S2) $\operatorname{Var}\left(\epsilon_i\right)=\sigma^2, \quad \forall_i\left(0<\sigma^2<\infty\right)$;
+
+(S3) $\operatorname{Cov}\left(\epsilon_i, \epsilon_s\right)=0, \quad \forall i \neq s$;
+
+(S4) $x$ assume pelo menos dois valores;
+
+(S5) Normalidade.
+
+## Alguns resultados
+
+Considere o modelo de regressão linear simples. Então a distribuição de $Y$, correspondente ao valor prefixado, $x$, de $X$, é dado por:
+$$
+Y \sim \mathcal{N}\left(\beta_0+\beta_1 x ; \sigma^2\right)
+$$
+**Prova:**
+$$
+\begin{aligned}
+E(Y \mid x) & =E\left(\beta_0+\beta_1 x+\epsilon\right) \\
+& =E\left(\beta_0+\beta_1 x\right)+E(\epsilon) \\
+& =\beta_0+\beta_1 x+0
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+\operatorname{Var}(Y \mid x) & =\operatorname{Var}\left(\beta_0+\beta_1 x+\epsilon\right) \\
+& =\operatorname{Var}\left(\beta_0+\beta_1 x\right)+\operatorname{Var}(\epsilon) \\
+& =0+\sigma^2 \\
+& =\sigma^2
+\end{aligned}
+$$
+
+::: {style="height:800px; font-size:28px; margin-left: 5px; margin-right: 5px"}
+
+## Forma matricial 
+
+Expressando este modelo usando notação matricial. Sejam os vetores
+$$
+\mathbf{Y}=\left[\begin{array}{c}
+y_1 \\
+y_2 \\
+\vdots \\
+y_n
+\end{array}\right], \quad \beta=\left[\begin{array}{c}
+\beta_0 \\
+\beta_1
+\end{array}\right] \text { e } \epsilon=\left[\begin{array}{c}
+\epsilon_1 \\
+\epsilon_2 \\
+\vdots \\
+\epsilon_n
+\end{array}\right]
+$$
+E seja a matriz $X$ :
+$$
+\mathbf{X}=\left[\begin{array}{cc}
+1 & x_1 \\
+1 & x_2 \\
+\vdots & \vdots \\
+1 & x_n
+\end{array}\right]
+$$
+Então,
+$$
+\mathbf{X} \beta+\epsilon=\left[\begin{array}{cc}
+1 & x_1 \\
+1 & x_2 \\
+\vdots & \vdots \\
+1 & x_n
+\end{array}\right]\left[\begin{array}{c}
+\beta_0 \\
+\beta_1
+\end{array}\right]+\left[\begin{array}{c}
+\epsilon_1 \\
+\epsilon_2 \\
+\vdots \\
+\epsilon_n
+\end{array}\right]=\left[\begin{array}{c}
+\beta_0+\beta_1 x_1+\epsilon_1 \\
+\beta_0+\beta_1 x_2+\epsilon_2 \\
+\vdots \\
+\beta_0+\beta_1 x_n+\epsilon_n
+\end{array}\right]=\left[\begin{array}{c}
+y_1 \\
+y_2 \\
+\vdots \\
+y_n
+\end{array}\right]=\mathbf{y}
+$$
+:::
+
+
+
+## Vetor matriz de covariância dos resíduos
+
+::: {style="height:500px; font-size:30px; margin-left: 5px; margin-right: 5px"}
+
+
+O vetor aleatório $\epsilon$ é composto de variáveis independentes, com distribuição $\mathcal{N}\left(0 ; \sigma^2\right)$. Desta forma, o vetor de esperanças dos elementos de $\epsilon$ é o vetor nulo de dimensão $n$ e a matriz, cuja diagonal é formada pelas variâncias e os demais elementos são as covariâncias, logo a matriz de variância e covariância é dado por
+$$
+\left[\begin{array}{ccccc}
+\sigma^2 & 0 & 0 & \ldots & 0 \\
+0 & \sigma^2 & 0 & \ldots & 0 \\
+\vdots & \vdots & \vdots & \ldots & \vdots \\
+0 & 0 & 0 & 0 & \ldots \sigma^2
+\end{array}\right]=\sigma^2 I
+$$
+sendo I a matriz identidade de ordem $n$.
+:::
+
+# Estimação 
+
+## método dos mínimos quadrados 
+
+::: {style="height:500px; font-size:30px; margin-left: 5px; margin-right: 5px"}
+
+
+A estimação de $\beta_0$ e $\beta_1$ pode ser feita pelo Método dos Mínimos Quadrados, que não requer qualquer hipótese sobre a distribuição das componentes do vetor $y$, e consiste em minimizar.
+$$
+S\left(\beta_0, \beta_1\right)=\sum_{i=1}^n\left[y_i-\left(\beta_0+\beta_1 x_i\right)\right]^2=\sum_{i=1}^n \epsilon_i{ }^2 .
+$$
+em que $y_i$ e $x_i$ são os valores observados de $Y_i$ e $X_i$, respectivamente, com $i=1,2, \cdots$, . Ao minimizar $S\left(\beta_0 ; \beta_1\right)$ com respeito a $\beta_0$ e $\beta_1$, estaremos minimizando a informação perdida ao utilizar o MRLS para modelar $Y$.
+:::
+
+## Derivadas parciais em relação aos parâmetros
+
+::: {style="height:500px; font-size:35px; margin-left: 5px; margin-right: 5px"}
+
+
+Para encontrar esse mínimo precisamos obter as seguintes derivadas parciais: 
+$$
+\begin{aligned}
+& \frac{\partial}{\partial \beta_0} \sum_{i=1}^n\left[y_i-\left(\beta_0+\beta_1 x_i\right)\right]^2 \\
+& \frac{\partial}{\partial \beta_1} \sum_{i=1}^n\left[y_i-\left(\beta_0+\beta_1 x_i\right)\right]^2
+\end{aligned}
+$$
+:::
+
+::: {style="height:800px; font-size:35px; margin-left: 5px; margin-right: 5px"}
+
+
+## Sistema de equações normais
+
+Denominado por $\hat{\beta}_0$ e $\hat{\beta}_1$ os valores que minimizam a função temos
+$$
+\begin{array}{r}
+-2 \sum_{i=1}^n\left[y_i-\left(\hat{\beta}_0+\hat{\beta}_1 x_i\right)\right]=0 \\
+-2 \sum_{i=1}^n\left[y_i-\left(\hat{\beta}_0+\hat{\beta}_1 x_i\right)\right] x_i=0,
+\end{array}
+$$
+denominado sistema de equações normais.
+Para garantir que $\left(\hat{\beta}_0 ; \hat{\beta}_1\right)$ é de fato ponto de mínimo da função $\left(\beta_0 ; \beta_1\right)$, precisamos obter a matriz de segundas derivadas e mostrar que está é não-negativa definida. Prove!
+:::
+
+::: {style="height:500px; font-size:40px; margin-left: 5px; margin-right: 5px"}
+
+## Estimadores de mínimos quadrados para $\beta_0$ e $\beta_1$
+
+Logo após alguma álgebra
+$$
+\begin{gathered}
+\hat{\beta}_0=\bar{y}-\hat{\beta}_1 x \\
+\hat{\beta}_1=\frac{\sum_{i=1}^n\left(y_i-\bar{y}\right)\left(x_i-\bar{x}\right)}{\sum_{i=1}^n\left(x_i-\bar{x}\right)^2}=\frac{\sum_{i=1}^n y_i\left(x_i-\bar{x}\right)}{\sum_{i=1}^n\left(x_i-\bar{x}\right)^2}
+\end{gathered}
+$$
+:::
+
+## Predição de Y
+
+Para prever valores de $Y$ para valores fixados de $X$, utiliza-se
+$$
+\hat{y}_0=\hat{\beta}_0+\hat{\beta}_1 x_0
+$$
+em que $x_0$ é um valor fixado para a covariável e $\hat{y}_0$ é o valor previsto para a variável resposta. O valor fixado para $x_0$ deve estar próximo aos limites do valores observados de $X$ da amostra utilizada para estimar os coeficientes da regressão.
+
+## Interpretação do coeficiente $\beta_0$ 
+
+Para interpretar o coeficiente estimado $\hat{\beta}_0$, tome $x_i=0$. Então, $\circ$ MRLS ajustado é
+$$
+\hat{\mu}_i=\hat{y}_i=\beta_0
+$$
+- Note que $\hat{\beta}_0$ é o ponto onde a reta de regressão ajustada intercepta 0 eixo $x$
+- $\hat{\beta}_0$ é uma estimativa para a média da variável resposta quando a covariável assume valor zero.
+
+::: {style="height:800px; font-size:35px; margin-left: 5px; margin-right: 5px"}
+
+## Interpretação do coeficiente $\beta_1$
+
+Para interpretar $\hat{\beta}_1$, considere o aumento de uma unidade no valor da covariável, isto é, $x_0=x+1$. Então,
+$$
+\begin{aligned}
+\hat{y} & =\hat{y}\left(x^{\prime}\right)-\hat{y}(x) \\
+& =\hat{\beta}_0+\hat{\beta}_1 x^{\prime}-\hat{\beta}_0-\hat{\beta}_1 x \\
+& =\hat{\beta}_0+\hat{\beta}_1(x+1)-\hat{\beta}_0-\hat{\beta}_1 x \\
+& =\hat{\beta}_1
+\end{aligned}
+$$
+Logo, além de $\hat{\beta}_1$ ser o coeficiente angular da reta de regressão, este, também, é o quanto o valor da média estimada de $Y$ varia quando aumentamos uma unidade da variável $X$.
+:::
+
+## Propriedades dos estimadores de MQ 
+
+- 
+$$
+\sum_{i=1}^n y_i=\sum_{i=1}^n \hat{y}_i
+$$
+Prova: 
+
+$$
+\begin{aligned} & \sum_{i=1}^n y_i-n \hat{\beta}_0-\hat{\beta}_1 \sum_{i=1}^n x_i=0 \\ & \rightarrow \sum_{i=1}^n y_i-\sum_{i=1}^n \underbrace{\left(\hat{\beta}_0+\hat{\beta}_1 x_i\right)}_{\hat{y}_i}=0 .\end{aligned}
+$$
+
+- 
+$$
+\sum_{i=1}^n e_i=0
+$$
+Prova:
+$$
+\begin{aligned}
+& \sum_{i=1}^n y_i-\sum_{i=1}^n \hat{y}_i=0 \\
+\rightarrow & \sum_{i=1}^n \underbrace{\left(y_i-\hat{y}_i\right)}_{e_i}=0 .
+\end{aligned}
+$$
+$$
+\begin{aligned}
+& \sum_{i=1}^n x_i e_i=0 \\
+& \text { Prova: } \quad \sum_{i=1}^n x_i y_i-\hat{\beta}_0 \sum_{i=1}^n x_i-\hat{\beta}_1 \sum_{i=1}^n x_i^2=0 \\
+& \rightarrow \sum_{i=1}^n x_i \underbrace{\left(y_i-\hat{\beta}_0-\hat{\beta}_1 x_i\right)}_{e_i}=0 \text {. } \\
+& \sum_{i=1}^n \hat{y}_i e_i=0 \\
+& \text { Prova: } \quad \sum_{i=1}^n \hat{y}_i e_i=\sum_{i=1}^n\left(\hat{\beta}_0-\hat{\beta_1} x_i\right) e_i \\
+& =\hat{\beta}_0 \underbrace{\sum_{i=1}^n e_i}_0-\hat{\beta}_1 \underbrace{\sum_{i=1}^n x_i e_i}_0 . \\
+&
+\end{aligned}
+$$
+::: {style="height:800px; font-size:30px; margin-left: 5px; margin-right: 5px"}
+
+## Propriedades dos estimadores 
+
+$$
+\begin{aligned}
+& \mathrm{E}\left(\hat{\beta}_1\right)=\beta_1 \text { e } \mathrm{E}\left(\hat{\beta}_0\right)=\beta_0 \\
+& \operatorname{Var}\left(\hat{\beta}_1\right)=\frac{\sigma^2}{\sum_{i=1}^n\left(x_i-\bar{x}\right)^2} \text { e } \operatorname{Var}\left(\hat{\beta}_0\right)=\sigma^2\left[\frac{1}{n}+\frac{\bar{x}^2}{\sum_{i=1}^n\left(x_i-\bar{x}\right)^2}\right] \\
+&
+\end{aligned}
+$$
+:::
+
+## Estimador para o parâmetro $\sigma^2$
+
+Precisamos estimar mais um parâmetro, a variância do erro, $\sigma^{2}$. Um estimador não-viesado de $\sigma^2$ para o modelo de regressão simples é dado por
+$$
+\begin{gathered}
+\hat{\sigma}^2=\frac{\sum_{i=1}^n\left(y_i-\hat{y}_i\right)^2}{n-2} \\ \\
+\text { sob o MRLS, } \frac{(n-2) \hat{\sigma}^2}{\sigma^2} \sim \mathcal{X}_{(n-2)}^2 .
+\end{gathered}
+$$
+
+## Decomposição das somas dos quadrados 
+
+- Técnica mais usada para verificar a adequação do ajuste do modelo de regressão a um conjunto de dados, baseada na seguinte identidade
+$$
+\begin{aligned}
+\sum_{i=1}^n\left(y_i-\bar{y}\right)^2 & =\sum_{i=1}^n\left(\hat{\mu}_i-\bar{y}\right)^2+\sum_{i=1}^n\left(y_i-\hat{\mu}_i\right)^2 \\
+\mathrm{SQT} & =\mathrm{SQE}+\mathrm{SQR}
+\end{aligned}
+$$
+
+## Coeficiente de determinação - $R^2$ 
+
+O coeficiente de correlação múltipla de Pearson (ou coeficiente de determinação) $R^2$ expressa o quanto o modelo explica a variabilidade total da variável $y$.
+$$
+R^2=\frac{S Q E}{S Q T}
+$$
+
+- O coeficiente $R^2$ é interpretado como a proporção da variação de $Y$ que é explicada pela covariável $X .(\in(0,1))$
+- **Finalidade**: Medir o poder de explicação de um modelo.
 

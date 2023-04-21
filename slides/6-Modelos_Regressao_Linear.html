@@ -340,7 +340,7 @@
 <li>O quanto da variabilidade da renda mensal pode ser explicado através do número médio de anos de estudo?</li>
 </ul>
 </section>
-<section id="introdução" class="slide level2">
+<section id="introdução" class="slide level2" style="height:800px; font-size:35px; margin-left: 5px; margin-right: 5px">
 <h2>Introdução</h2>
 <ul>
 <li><p>Existem situações nas quais há interesse em estudar o comportamento conjunto de uma ou mais variáveis;</p></li>
@@ -348,8 +348,8 @@
 <li><p>O comportamento conjunto de duas variáveis quantitativas pode ser observado por meio do gráfico de dispersão.</p></li>
 </ul>
 </section>
-<section id="introdução-1" class="slide level2">
-<h2>Introdução</h2>
+<section id="história-da-regressão" class="slide level2" style="height:800px; font-size:35px; margin-left: 5px; margin-right: 5px">
+<h2>História da regressão</h2>
 <p>O termo regressão foi utilizado pela primeira vez por <u>Galton em 1885</u>, em um estudo que avaliou a relação entre a altura dos pais e filhos.</p>
 <ul>
 <li><p>O objetivo do estudo foi avaliar como a altura do pai influenciava a altura do filho. Por esse motivo, Galton denominou de regressão, por existir uma tendência de regressão à média.</p></li>
@@ -384,14 +384,16 @@
 <img data-src="images/gcor.jpeg" width="1000" class="r-stretch"></section>
 <section id="coeficiente-de-correlação" class="slide level2">
 <h2>Coeficiente de correlação</h2>
+<div style="height:500px; font-size:25px; margin-left: 10px; margin-right: 10px">
 <p>Mede a intensidade e a direção da relação linear entre duas variáveis.</p>
 <p><span class="math display">\[
 \begin{aligned}
 \rho(X, Y) &amp; =\frac{\operatorname{Cov}(X, Y)}{\sigma_X \cdot \sigma_Y} \\
 &amp; =\frac{n \sum_{i=1}^n x_i y_i-\sum_{i=1}^n x_i \sum_{i=1}^n y_i}{\sqrt{n \sum_{i=1}^n x_i^2-\left(\sum_{i=1}^n x_i\right)^2} \sqrt{n \sum_{i=1}^n y_i^2-\left(\sum_{i=1}^n y_i\right)^2}}, \quad i=1, \ldots, n .
 \end{aligned}
-\]</span></p>
-<p>em que <span class="math inline">\(n\)</span> : tamanho da amostra; <span class="math inline">\(y\)</span> : variável dependente; <span class="math inline">\(x\)</span> : variável independente; <span class="math inline">\(\sigma_X\)</span> e <span class="math inline">\(\sigma_Y\)</span> é o desvio de <span class="math inline">\(\mathrm{X}\)</span> e <span class="math inline">\(\mathrm{Y}\)</span>, respectivamente; <span class="math inline">\(\operatorname{Cov}(X, Y)\)</span> é a covariância entre duas variáveis.</p>
+\]</span> em que <span class="math inline">\(n\)</span> : tamanho da amostra; <span class="math inline">\(y\)</span> : variável dependente; <span class="math inline">\(x\)</span> :</p>
+<p>variável independente; <span class="math inline">\(\sigma_X\)</span> e <span class="math inline">\(\sigma_Y\)</span> é o desvio de <span class="math inline">\(\mathrm{X}\)</span> e <span class="math inline">\(\mathrm{Y}\)</span>, respectivamente; <span class="math inline">\(\operatorname{Cov}(X, Y)\)</span> é a covariância entre duas variáveis.</p>
+</div>
 </section>
 <section id="interpretação-coeficiente-de-correlação" class="slide level2">
 <h2>Interpretação coeficiente de correlação</h2>
@@ -401,13 +403,295 @@
 <li><p>Se <span class="math inline">\(\rho=0\)</span> inexistência de correlação linear.</p></li>
 </ul>
 </section>
+<section>
 <section id="modelo-de-regressão-linear" class="title-slide slide level1 center">
 <h1>Modelo de regressão Linear</h1>
+<div style="height:800px; font-size:35px; margin-left: 5px; margin-right: 5px">
+<ul>
+<li><p>Seja <span class="math inline">\(Y\)</span> uma variável resposta, e seja <span class="math inline">\(X\)</span> uma variável denominada de regressora (FREIRE et al, 2008).</p></li>
+<li><p>O MRLS descreve a variável <span class="math inline">\(Y\)</span> como uma soma de uma quantidade determinística e uma quantidade aleatória.</p></li>
+</ul>
+<ol type="i">
+<li><p>Parte determinística: uma reta em função de <span class="math inline">\(X\)</span>.</p></li>
+<li><p>Parte aleatória: denominada de erro.</p></li>
+</ol>
+</div>
+</section>
+<section id="modelo-de-regressão-linear-simples" class="slide level2">
+<h2>modelo de regressão linear simples</h2>
+<p>O modelo de regressão é chamado de simples quando envolve uma relação causal entre duas variáveis.</p>
+<p><span class="math display">\[
+Y=\beta_0+\beta_1 X+\epsilon
+\]</span></p>
+<p><span class="math inline">\(\beta_0\)</span> e <span class="math inline">\(\beta_1\)</span> são os parâmetros da regressão que são desconhecidos e devem ser estimados; <span class="math inline">\(\epsilon\)</span>, é o erro que é uma variável aleatória não-observável, em que é suposto que <span class="math inline">\(\mathbf{E}(\epsilon)=0\)</span> e <span class="math inline">\(\operatorname{Var}(\epsilon)=\sigma^2\)</span>.</p>
+</section>
+<section id="suposições" class="slide level2">
+<h2>Suposições</h2>
+<p>(S0) O modelo está correto;</p>
+<p>(S1) <span class="math inline">\(\mathrm{E}\left(\epsilon_i\right)=0, \quad \forall_i\)</span>;</p>
+<p>(S2) <span class="math inline">\(\operatorname{Var}\left(\epsilon_i\right)=\sigma^2, \quad \forall_i\left(0&lt;\sigma^2&lt;\infty\right)\)</span>;</p>
+<p>(S3) <span class="math inline">\(\operatorname{Cov}\left(\epsilon_i, \epsilon_s\right)=0, \quad \forall i \neq s\)</span>;</p>
+<p>(S4) <span class="math inline">\(x\)</span> assume pelo menos dois valores;</p>
+<p>(S5) Normalidade.</p>
+</section>
+<section id="alguns-resultados" class="slide level2">
+<h2>Alguns resultados</h2>
+<p>Considere o modelo de regressão linear simples. Então a distribuição de <span class="math inline">\(Y\)</span>, correspondente ao valor prefixado, <span class="math inline">\(x\)</span>, de <span class="math inline">\(X\)</span>, é dado por:</p>
+<p><span class="math display">\[
+Y \sim \mathcal{N}\left(\beta_0+\beta_1 x ; \sigma^2\right)
+\]</span></p>
+<p><strong>Prova:</strong></p>
+<p><span class="math display">\[
+\begin{aligned}
+E(Y \mid x) &amp; =E\left(\beta_0+\beta_1 x+\epsilon\right) \\
+&amp; =E\left(\beta_0+\beta_1 x\right)+E(\epsilon) \\
+&amp; =\beta_0+\beta_1 x+0
+\end{aligned}
+\]</span></p>
+<p><span class="math display">\[
+\begin{aligned}
+\operatorname{Var}(Y \mid x) &amp; =\operatorname{Var}\left(\beta_0+\beta_1 x+\epsilon\right) \\
+&amp; =\operatorname{Var}\left(\beta_0+\beta_1 x\right)+\operatorname{Var}(\epsilon) \\
+&amp; =0+\sigma^2 \\
+&amp; =\sigma^2
+\end{aligned}
+\]</span></p>
+</section>
+<section id="forma-matricial" class="slide level2" style="height:800px; font-size:28px; margin-left: 5px; margin-right: 5px">
+<h2>Forma matricial</h2>
+<p>Expressando este modelo usando notação matricial. Sejam os vetores</p>
+<p><span class="math display">\[
+\mathbf{Y}=\left[\begin{array}{c}
+y_1 \\
+y_2 \\
+\vdots \\
+y_n
+\end{array}\right], \quad \beta=\left[\begin{array}{c}
+\beta_0 \\
+\beta_1
+\end{array}\right] \text { e } \epsilon=\left[\begin{array}{c}
+\epsilon_1 \\
+\epsilon_2 \\
+\vdots \\
+\epsilon_n
+\end{array}\right]
+\]</span></p>
+<p>E seja a matriz <span class="math inline">\(X\)</span> :</p>
+<p><span class="math display">\[
+\mathbf{X}=\left[\begin{array}{cc}
+1 &amp; x_1 \\
+1 &amp; x_2 \\
+\vdots &amp; \vdots \\
+1 &amp; x_n
+\end{array}\right]
+\]</span></p>
+<p>Então,</p>
+<p><span class="math display">\[
+\mathbf{X} \beta+\epsilon=\left[\begin{array}{cc}
+1 &amp; x_1 \\
+1 &amp; x_2 \\
+\vdots &amp; \vdots \\
+1 &amp; x_n
+\end{array}\right]\left[\begin{array}{c}
+\beta_0 \\
+\beta_1
+\end{array}\right]+\left[\begin{array}{c}
+\epsilon_1 \\
+\epsilon_2 \\
+\vdots \\
+\epsilon_n
+\end{array}\right]=\left[\begin{array}{c}
+\beta_0+\beta_1 x_1+\epsilon_1 \\
+\beta_0+\beta_1 x_2+\epsilon_2 \\
+\vdots \\
+\beta_0+\beta_1 x_n+\epsilon_n
+\end{array}\right]=\left[\begin{array}{c}
+y_1 \\
+y_2 \\
+\vdots \\
+y_n
+\end{array}\right]=\mathbf{y}
+\]</span></p>
+</section>
+<section id="vetor-matriz-de-covariância-dos-resíduos" class="slide level2">
+<h2>Vetor matriz de covariância dos resíduos</h2>
+<div style="height:500px; font-size:30px; margin-left: 5px; margin-right: 5px">
+<p>O vetor aleatório <span class="math inline">\(\epsilon\)</span> é composto de variáveis independentes, com distribuição <span class="math inline">\(\mathcal{N}\left(0 ; \sigma^2\right)\)</span>. Desta forma, o vetor de esperanças dos elementos de <span class="math inline">\(\epsilon\)</span> é o vetor nulo de dimensão <span class="math inline">\(n\)</span> e a matriz, cuja diagonal é formada pelas variâncias e os demais elementos são as covariâncias, logo a matriz de variância e covariância é dado por</p>
+<p><span class="math display">\[
+\left[\begin{array}{ccccc}
+\sigma^2 &amp; 0 &amp; 0 &amp; \ldots &amp; 0 \\
+0 &amp; \sigma^2 &amp; 0 &amp; \ldots &amp; 0 \\
+\vdots &amp; \vdots &amp; \vdots &amp; \ldots &amp; \vdots \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; \ldots \sigma^2
+\end{array}\right]=\sigma^2 I
+\]</span></p>
+<p>sendo I a matriz identidade de ordem <span class="math inline">\(n\)</span>.</p>
+</div>
+</section></section>
+<section>
+<section id="estimação" class="title-slide slide level1 center">
+<h1>Estimação</h1>
+
+</section>
+<section id="método-dos-mínimos-quadrados" class="slide level2">
+<h2>método dos mínimos quadrados</h2>
+<div style="height:500px; font-size:30px; margin-left: 5px; margin-right: 5px">
+<p>A estimação de <span class="math inline">\(\beta_0\)</span> e <span class="math inline">\(\beta_1\)</span> pode ser feita pelo Método dos Mínimos Quadrados, que não requer qualquer hipótese sobre a distribuição das componentes do vetor <span class="math inline">\(y\)</span>, e consiste em minimizar.</p>
+<p><span class="math display">\[
+S\left(\beta_0, \beta_1\right)=\sum_{i=1}^n\left[y_i-\left(\beta_0+\beta_1 x_i\right)\right]^2=\sum_{i=1}^n \epsilon_i{ }^2 .
+\]</span></p>
+<p>em que <span class="math inline">\(y_i\)</span> e <span class="math inline">\(x_i\)</span> são os valores observados de <span class="math inline">\(Y_i\)</span> e <span class="math inline">\(X_i\)</span>, respectivamente, com <span class="math inline">\(i=1,2, \cdots\)</span>, . Ao minimizar <span class="math inline">\(S\left(\beta_0 ; \beta_1\right)\)</span> com respeito a <span class="math inline">\(\beta_0\)</span> e <span class="math inline">\(\beta_1\)</span>, estaremos minimizando a informação perdida ao utilizar o MRLS para modelar <span class="math inline">\(Y\)</span>.</p>
+</div>
+</section>
+<section id="derivadas-parciais-em-relação-aos-parâmetros" class="slide level2">
+<h2>Derivadas parciais em relação aos parâmetros</h2>
+<div style="height:500px; font-size:35px; margin-left: 5px; margin-right: 5px">
+<p>Para encontrar esse mínimo precisamos obter as seguintes derivadas parciais:</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp; \frac{\partial}{\partial \beta_0} \sum_{i=1}^n\left[y_i-\left(\beta_0+\beta_1 x_i\right)\right]^2 \\
+&amp; \frac{\partial}{\partial \beta_1} \sum_{i=1}^n\left[y_i-\left(\beta_0+\beta_1 x_i\right)\right]^2
+\end{aligned}
+\]</span></p>
+</div>
+</section>
+<section id="sistema-de-equações-normais" class="slide level2" style="height:800px; font-size:35px; margin-left: 5px; margin-right: 5px">
+<h2>Sistema de equações normais</h2>
+<p>Denominado por <span class="math inline">\(\hat{\beta}_0\)</span> e <span class="math inline">\(\hat{\beta}_1\)</span> os valores que minimizam a função temos</p>
+<p><span class="math display">\[
+\begin{array}{r}
+-2 \sum_{i=1}^n\left[y_i-\left(\hat{\beta}_0+\hat{\beta}_1 x_i\right)\right]=0 \\
+-2 \sum_{i=1}^n\left[y_i-\left(\hat{\beta}_0+\hat{\beta}_1 x_i\right)\right] x_i=0,
+\end{array}
+\]</span></p>
+<p>denominado sistema de equações normais. Para garantir que <span class="math inline">\(\left(\hat{\beta}_0 ; \hat{\beta}_1\right)\)</span> é de fato ponto de mínimo da função <span class="math inline">\(\left(\beta_0 ; \beta_1\right)\)</span>, precisamos obter a matriz de segundas derivadas e mostrar que está é não-negativa definida. Prove!</p>
+</section>
+<section id="estimadores-de-mínimos-quadrados-para-beta_0-e-beta_1" class="slide level2" style="height:500px; font-size:40px; margin-left: 5px; margin-right: 5px">
+<h2>Estimadores de mínimos quadrados para <span class="math inline">\(\beta_0\)</span> e <span class="math inline">\(\beta_1\)</span></h2>
+<p>Logo após alguma álgebra</p>
+<p><span class="math display">\[
+\begin{gathered}
+\hat{\beta}_0=\bar{y}-\hat{\beta}_1 x \\
+\hat{\beta}_1=\frac{\sum_{i=1}^n\left(y_i-\bar{y}\right)\left(x_i-\bar{x}\right)}{\sum_{i=1}^n\left(x_i-\bar{x}\right)^2}=\frac{\sum_{i=1}^n y_i\left(x_i-\bar{x}\right)}{\sum_{i=1}^n\left(x_i-\bar{x}\right)^2}
+\end{gathered}
+\]</span></p>
+</section>
+<section id="predição-de-y" class="slide level2">
+<h2>Predição de Y</h2>
+<p>Para prever valores de <span class="math inline">\(Y\)</span> para valores fixados de <span class="math inline">\(X\)</span>, utiliza-se</p>
+<p><span class="math display">\[
+\hat{y}_0=\hat{\beta}_0+\hat{\beta}_1 x_0
+\]</span></p>
+<p>em que <span class="math inline">\(x_0\)</span> é um valor fixado para a covariável e <span class="math inline">\(\hat{y}_0\)</span> é o valor previsto para a variável resposta. O valor fixado para <span class="math inline">\(x_0\)</span> deve estar próximo aos limites do valores observados de <span class="math inline">\(X\)</span> da amostra utilizada para estimar os coeficientes da regressão.</p>
+</section>
+<section id="interpretação-do-coeficiente-beta_0" class="slide level2">
+<h2>Interpretação do coeficiente <span class="math inline">\(\beta_0\)</span></h2>
+<p>Para interpretar o coeficiente estimado <span class="math inline">\(\hat{\beta}_0\)</span>, tome <span class="math inline">\(x_i=0\)</span>. Então, <span class="math inline">\(\circ\)</span> MRLS ajustado é</p>
+<p><span class="math display">\[
+\hat{\mu}_i=\hat{y}_i=\beta_0
+\]</span></p>
+<ul>
+<li>Note que <span class="math inline">\(\hat{\beta}_0\)</span> é o ponto onde a reta de regressão ajustada intercepta 0 eixo <span class="math inline">\(x\)</span></li>
+<li><span class="math inline">\(\hat{\beta}_0\)</span> é uma estimativa para a média da variável resposta quando a covariável assume valor zero.</li>
+</ul>
+</section>
+<section id="interpretação-do-coeficiente-beta_1" class="slide level2" style="height:800px; font-size:35px; margin-left: 5px; margin-right: 5px">
+<h2>Interpretação do coeficiente <span class="math inline">\(\beta_1\)</span></h2>
+<p>Para interpretar <span class="math inline">\(\hat{\beta}_1\)</span>, considere o aumento de uma unidade no valor da covariável, isto é, <span class="math inline">\(x_0=x+1\)</span>. Então,</p>
+<p><span class="math display">\[
+\begin{aligned}
+\hat{y} &amp; =\hat{y}\left(x^{\prime}\right)-\hat{y}(x) \\
+&amp; =\hat{\beta}_0+\hat{\beta}_1 x^{\prime}-\hat{\beta}_0-\hat{\beta}_1 x \\
+&amp; =\hat{\beta}_0+\hat{\beta}_1(x+1)-\hat{\beta}_0-\hat{\beta}_1 x \\
+&amp; =\hat{\beta}_1
+\end{aligned}
+\]</span></p>
+<p>Logo, além de <span class="math inline">\(\hat{\beta}_1\)</span> ser o coeficiente angular da reta de regressão, este, também, é o quanto o valor da média estimada de <span class="math inline">\(Y\)</span> varia quando aumentamos uma unidade da variável <span class="math inline">\(X\)</span>.</p>
+</section>
+<section id="propriedades-dos-estimadores-de-mq" class="slide level2">
+<h2>Propriedades dos estimadores de MQ</h2>
+<ul>
+<li></li>
+</ul>
+<p><span class="math display">\[
+\sum_{i=1}^n y_i=\sum_{i=1}^n \hat{y}_i
+\]</span></p>
+<p>Prova:</p>
+<p><span class="math display">\[
+\begin{aligned} &amp; \sum_{i=1}^n y_i-n \hat{\beta}_0-\hat{\beta}_1 \sum_{i=1}^n x_i=0 \\ &amp; \rightarrow \sum_{i=1}^n y_i-\sum_{i=1}^n \underbrace{\left(\hat{\beta}_0+\hat{\beta}_1 x_i\right)}_{\hat{y}_i}=0 .\end{aligned}
+\]</span></p>
+<ul>
+<li></li>
+</ul>
+<p><span class="math display">\[
+\sum_{i=1}^n e_i=0
+\]</span></p>
+<p>Prova:</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp; \sum_{i=1}^n y_i-\sum_{i=1}^n \hat{y}_i=0 \\
+\rightarrow &amp; \sum_{i=1}^n \underbrace{\left(y_i-\hat{y}_i\right)}_{e_i}=0 .
+\end{aligned}
+\]</span></p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp; \sum_{i=1}^n x_i e_i=0 \\
+&amp; \text { Prova: } \quad \sum_{i=1}^n x_i y_i-\hat{\beta}_0 \sum_{i=1}^n x_i-\hat{\beta}_1 \sum_{i=1}^n x_i^2=0 \\
+&amp; \rightarrow \sum_{i=1}^n x_i \underbrace{\left(y_i-\hat{\beta}_0-\hat{\beta}_1 x_i\right)}_{e_i}=0 \text {. } \\
+&amp; \sum_{i=1}^n \hat{y}_i e_i=0 \\
+&amp; \text { Prova: } \quad \sum_{i=1}^n \hat{y}_i e_i=\sum_{i=1}^n\left(\hat{\beta}_0-\hat{\beta_1} x_i\right) e_i \\
+&amp; =\hat{\beta}_0 \underbrace{\sum_{i=1}^n e_i}_0-\hat{\beta}_1 \underbrace{\sum_{i=1}^n x_i e_i}_0 . \\
+&amp;
+\end{aligned}
+\]</span></p>
+</section>
+<section id="propriedades-dos-estimadores" class="slide level2" style="height:800px; font-size:30px; margin-left: 5px; margin-right: 5px">
+<h2>Propriedades dos estimadores</h2>
+<p><span class="math display">\[
+\begin{aligned}
+&amp; \mathrm{E}\left(\hat{\beta}_1\right)=\beta_1 \text { e } \mathrm{E}\left(\hat{\beta}_0\right)=\beta_0 \\
+&amp; \operatorname{Var}\left(\hat{\beta}_1\right)=\frac{\sigma^2}{\sum_{i=1}^n\left(x_i-\bar{x}\right)^2} \text { e } \operatorname{Var}\left(\hat{\beta}_0\right)=\sigma^2\left[\frac{1}{n}+\frac{\bar{x}^2}{\sum_{i=1}^n\left(x_i-\bar{x}\right)^2}\right] \\
+&amp;
+\end{aligned}
+\]</span></p>
+</section>
+<section id="estimador-para-o-parâmetro-sigma2" class="slide level2">
+<h2>Estimador para o parâmetro <span class="math inline">\(\sigma^2\)</span></h2>
+<p>Precisamos estimar mais um parâmetro, a variância do erro, <span class="math inline">\(\sigma^{2}\)</span>. Um estimador não-viesado de <span class="math inline">\(\sigma^2\)</span> para o modelo de regressão simples é dado por</p>
+<p><span class="math display">\[
+\begin{gathered}
+\hat{\sigma}^2=\frac{\sum_{i=1}^n\left(y_i-\hat{y}_i\right)^2}{n-2} \\ \\
+\text { sob o MRLS, } \frac{(n-2) \hat{\sigma}^2}{\sigma^2} \sim \mathcal{X}_{(n-2)}^2 .
+\end{gathered}
+\]</span></p>
+</section>
+<section id="decomposição-das-somas-dos-quadrados" class="slide level2">
+<h2>Decomposição das somas dos quadrados</h2>
+<ul>
+<li>Técnica mais usada para verificar a adequação do ajuste do modelo de regressão a um conjunto de dados, baseada na seguinte identidade</li>
+</ul>
+<p><span class="math display">\[
+\begin{aligned}
+\sum_{i=1}^n\left(y_i-\bar{y}\right)^2 &amp; =\sum_{i=1}^n\left(\hat{\mu}_i-\bar{y}\right)^2+\sum_{i=1}^n\left(y_i-\hat{\mu}_i\right)^2 \\
+\mathrm{SQT} &amp; =\mathrm{SQE}+\mathrm{SQR}
+\end{aligned}
+\]</span></p>
+</section>
+<section id="coeficiente-de-determinação---r2" class="slide level2">
+<h2>Coeficiente de determinação - <span class="math inline">\(R^2\)</span></h2>
+<p>O coeficiente de correlação múltipla de Pearson (ou coeficiente de determinação) <span class="math inline">\(R^2\)</span> expressa o quanto o modelo explica a variabilidade total da variável <span class="math inline">\(y\)</span>.</p>
+<p><span class="math display">\[
+R^2=\frac{S Q E}{S Q T}
+\]</span></p>
+<ul>
+<li>O coeficiente <span class="math inline">\(R^2\)</span> é interpretado como a proporção da variação de <span class="math inline">\(Y\)</span> que é explicada pela covariável <span class="math inline">\(X .(\in(0,1))\)</span></li>
+<li><strong>Finalidade</strong>: Medir o poder de explicação de um modelo.</li>
+</ul>
 
 <img src="Marca_UEPB.png" class="slide-logo r-stretch"><div class="footer footer-default">
 
 </div>
-</section>
+</section></section>
     </div>
   </div>
 

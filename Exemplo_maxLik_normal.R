@@ -21,7 +21,6 @@ logveros_norm <- function( x, par ){
 
 ## Funcao para chute inicial 
 
-
 chute_inicial <- function(x){
   
   mu = seq(1,100,10) # candidatos para chute inicial do parametro mu
@@ -45,20 +44,22 @@ chute_inicial <- function(x){
 }
 
 
-
-
 ### Experimento Monte Carlo
 ## Avaliar os estimadores de MV da normal
 
 # Parametros: 
 mu = 10
-sigma2 = 4
+sigma2 = 1
 par = c(mu, sigma2)
 
-n = 25
-M = 1000 # quantidade de MC
+n = c(25, 50, 100, 500)
+M = 100 # quantidade de MC
 
-RESULT = matrix( NA, nrow = M, ncol = 3 )
+MATRIZ_FINAL = matrix( NA, nrow = length(n), ncol = 5 )
+
+for(j in 1:length(n)){
+
+RESULT = matrix( NA, nrow = M, ncol = 3)
 cont_falha=c()
 
 for( i in 1:M){
@@ -66,28 +67,27 @@ for( i in 1:M){
   conv = 1 
   
   while(conv != 0){  
-  x = rnorm( n = n, mean = mu, sd = sqrt(sigma2)   ) # gerador da normal
-  n = length(x) # tamanho do vetor de dados
+  x = rnorm( n = n[j], mean = mu, sd = sqrt(sigma2)   ) # gerador da normal
   lk_new = function(par)  logveros_norm(x, par)
   chute = as.numeric(chute_inicial(x))
   res_maxlik = maxLik(lk_new, grad = NULL, hess = NULL, start=chute, method="BFGS")
   Estimate = res_maxlik$estimate 
   conv = res_maxlik$code
-  cont_falha = c(cont_falha,conv )
+  cont_falha = c(cont_falha, conv)
   }
   
   ## RES: matriz com as estimativas dos parametros
   RESULT[i,] = c(Estimate, conv)
-  print(i)
   
 }
 
+MEDIA = colMeans(RESULT)
+EQM_MU = mean( (RESULT[,1] - mu)^2 )  
+EQM_SIGMA2 = mean( (RESULT[,2] - sigma2)^2 )  
 
-sum(cont_falha)
-colMeans(RESULT)
-
-
-
+MATRIZ_FINAL[j,] = c( MEDIA, EQM_MU, EQM_SIGMA2)
+print( MATRIZ_FINAL[j,]  )
+}
 
 
 
